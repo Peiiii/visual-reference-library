@@ -60,6 +60,7 @@ test('both copy modes identify the same Motion Prompt item and the full prompt c
       assert.ok(copy.includes('https://showheyohtaki.github.io/motion-prompt/#' + item.id));
     }
     assert.ok(full.includes(item.ask['zh-Hans']));
+    assert.ok(full.includes('以原始规格为效果基准'));
     assert.ok(full.includes(api + 'en/e/' + item.id + '.txt'));
     assert.ok(full.includes(api + 'kit/' + item.pack + '.js'));
     for (const spec of item.spec.en) assert.ok(full.includes(spec), item.id);
