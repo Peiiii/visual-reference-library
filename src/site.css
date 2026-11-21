@@ -120,9 +120,17 @@ input[type="checkbox"] { accent-color: var(--red-deep); width: 17px; height: 17p
 }
 .card-body { display: flex; flex: 1; flex-direction: column; min-width: 0; padding: 15px 17px 17px; }
 .cover { position: relative; width: 100%; aspect-ratio: 1.87; overflow: hidden; background: #e5dac7; isolation: isolate; }
-.cover img { width: 100%; height: 100%; object-fit: cover; }
-.cover img[src$="papercut.webp"] { object-position: 50% 49%; }
-.cover img[src$="clay.webp"] { object-position: 50% 56%; }
+.cover img { width: 100%; height: 100%; object-fit: cover; object-position: var(--cover-position, center); }
+.cover[data-art="papercut.webp"] { --cover-position: 50% 49%; }
+.cover[data-art="clay.webp"] { --cover-position: 50% 56%; }
+.cover img[data-card-image]:not([data-ready]) { opacity: 0; }
+.cover-preview {
+  position: absolute; inset: 0; pointer-events: none;
+  background: center / cover no-repeat;
+  background-position: var(--cover-position, center);
+  filter: blur(5px); transform: scale(1.025);
+}
+.cover [data-ready] + .cover-preview { visibility: hidden; }
 .media-label {
   position: absolute; bottom: 8px; left: 8px; padding: 2px 7px; border-radius: 3px;
   font-size: 11px; font-weight: 700; color: var(--ink); background: #fbf3dd;
@@ -152,6 +160,7 @@ input[type="checkbox"] { accent-color: var(--red-deep); width: 17px; height: 17p
 .action:disabled { opacity: .5; }
 .motion-cover { aspect-ratio: 2.32; background: #18203d; display: grid; place-items: center; }
 .motion-cover canvas, .white-cover canvas { width: 100%; height: 100%; object-fit: contain; }
+.motion-cover .cover-preview { background-size: contain; }
 .white-cover { display: grid; place-items: center; background: #dfddd5; }
 .white-tall { width: min(100%,270px); aspect-ratio: 9/16; margin-inline: auto; }
 .white-square { width: min(100%,425px); aspect-ratio: 1; margin-inline: auto; }
@@ -159,6 +168,7 @@ input[type="checkbox"] { accent-color: var(--red-deep); width: 17px; height: 17p
 .preview-error { color: white; padding: 10px; }
 .atlas-picture { aspect-ratio: 3 / 2; background: #25231f; }
 .atlas-picture img { object-fit: contain; }
+.atlas-picture .cover-preview { background-size: contain; }
 .load-tail { display: flex; justify-content: center; margin: 24px 0 4px; }
 .load-tail[hidden], .select-popup[hidden] { display: none; }
 .load-tail button { min-height: 40px; padding-inline: 14px; }

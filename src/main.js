@@ -1,29 +1,32 @@
 import './site.css';
 import {
-  styles, effects, motions, packs, whiteModels, atlasBase, motionBase, douyinSource,
+  styles, opuscarStyles, opuscarBase, effects, motionCatalog, loadMotionCatalog, whiteModels, atlasBase, motionBase, douyinSource,
   atlasGroup, zh, packName, categoryName, motionTheme, isPhysics,
-  searchable, stylePrompt, motionPrompt, whitePrompt, pairStyles, mixPrompt,
+  searchable, stylePrompt, opuscarPrompt, motionPrompt, whitePrompt, pairStyles, mixPrompt,
 } from './data.js';
 import atlasMedia from '../data/atlas-media.json' with { type: 'json' };
 import atlasVideos from '../data/atlas-videos.json' with { type: 'json' };
+import coverPreviews from '../data/cover-previews.json' with { type: 'json' };
 import { PreviewPlayer, skins } from './preview.js';
 import { FilterMenus } from './filter-menus.js';
 
 const repository = 'https://github.com/Peiiii/visual-reference-library';
 
 const pages = {
-  styles: ['风格库', '浏览视觉包装样张，按题材选风格，把配置直接交给 AI。', styles],
+  styles: ['风格库', '浏览视觉包装样张，按题材选风格，把配置直接交给 AI。', [...styles, ...opuscarStyles]],
   atlas: ['视觉特效', '从摄影和电影史到机器技法，查找原始效果、示例与 LetzAI 提示词。', effects],
-  motion: ['动效手法', '看循环演示，找到镜头、光影、转场和运动节奏的准确名称。', motions],
+  motion: ['动效手法', '看循环演示，找到镜头、光影、转场、画风和图解的准确名称。', []],
   white: ['白模动作', '保留同一套关键帧，在横、竖、方与不同风格之间切换。', whiteModels],
   mix: ['风格组合', '从风格库取 3–5 套基底，两两组合，再套入自己的配色与 IP。', []],
 };
 const artFiles = new Set(['woodblock','clay','glass','collage','neon','papercut','shadow','lantern','crayon','wash','ink','impasto']);
 const sortDefault = '最近入库';
+const styleCollections = [['own','个人风格'],['opuscar','Lemo-Opuscar']];
 const batchSize = 24;
 const formats = { wide: ['横版 16:9', 512, 288], tall: ['竖版 9:16', 288, 512], square: ['方版 1:1', 320, 320] };
 const whiteRelations = ['揭示','累积','计数','对照','替换','聚焦','拆分','聚合','传递','排序','演化','否定'];
 const whiteTypes = ['数字','证据','对比','金句','步骤','引用','钩子','术语','列举','过渡','强调','换段'];
+const whiteShortcuts = [['all','全部'],...['步骤','对比','数字','换段','钩子'].map(type => [type,type])];
 const whiteGroups = ['录屏类','标题类','概念类','叠加卡类','连接类','转场类','转场类（片头）','转场类（片尾）'];
 const motionAliases = {
   'dolly-zoom-vertigo': '希区柯克变焦 希区考克变焦',
@@ -38,6 +41,8 @@ const programs = {
   physics: '物理与缓动',
   'UI 组件': 'UI 组件',
   '落地页与网页': '网页效果',
+  '图像画风': '图像画风',
+  '图解图表': '图解图表',
 };
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char =>
@@ -75,11 +80,28 @@ function quickFilters(key, label, options, selected) {
     </div>`;
 }
 
-function styleArt(item) {
+function coverImage(original, alt, mode) {
+  const preview = coverPreviews[original];
+  const src = mode === 'detail' ? original : (preview?.thumb ?? original);
+  const priority = mode === 'priority' ? ' fetchpriority="high"' : '';
+  const fallback = src !== original ? ` data-original="${esc(original)}"` : '';
+  return `<img loading="${mode === 'lazy' ? 'lazy' : 'eager'}" decoding="async"${priority}${fallback}
+    ${preview ? 'data-card-image' : ''} src="${esc(src)}" alt="${esc(alt)}">${inlineCover(preview)}`;
+}
+
+function inlineCover(preview) {
+  return preview ? `<span class="cover-preview" aria-hidden="true" style="background-image:url(data:image/webp;base64,${preview.preview})"></span>` : '';
+}
+
+function styleArt(item, mode = 'detail') {
   const customImage = typeof item.image === 'string' && item.image.startsWith('/samples/') ? item.image : null;
   if (customImage || artFiles.has(item.preview)) {
     const src = customImage || '/samples/' + item.preview + '.webp';
-    return `<div class="cover"><img loading="lazy" decoding="async" src="${esc(src)}" alt="${esc(item.name)}原创样张"></div>`;
+    const artwork = src.split('/').at(-1);
+    const label = item.film ? (item.stationCover ? '工位图' : '样片封面') : '';
+    const alt = label ? item.group + ' · ' + (item.stationCover ? label : item.film) : item.name + '原创样张';
+    return `<div class="cover" data-art="${esc(artwork)}">${coverImage(src, alt, mode)}
+      ${label ? `<small class="media-label">${label}</small>` : ''}</div>`;
   }
   const colors = item.colors.map((value, index) => '--c' + index + ':' + value).join(';');
   const label = item.preview === 'swiss' ? '<b>形与序</b><small>FORM & RHYTHM</small>' : '<i></i><i></i><i></i><i></i>';
@@ -88,7 +110,8 @@ function styleArt(item) {
 }
 
 function motionCanvas(item) {
-  return `<div class="cover motion-cover"><canvas data-motion="${item.id}" width="${item.width}" height="${item.height}" role="img" aria-label="${esc(zh(item.name))}循环样张"></canvas></div>`;
+  const preview = item.pack === 'artstyle' && coverPreviews['/motion-prompt/img/style-' + item.no + '.webp'];
+  return `<div class="cover motion-cover"><canvas data-motion="${item.id}" width="${item.width}" height="${item.height}" role="img" aria-label="${esc(zh(item.name))}循环样张"></canvas>${inlineCover(preview)}</div>`;
 }
 
 function whiteCanvas(item, format = 'wide', skin = 'gray') {
@@ -97,10 +120,10 @@ function whiteCanvas(item, format = 'wide', skin = 'gray') {
     <canvas data-white="${item.id}" data-skin="${skin}" width="${width}" height="${height}" role="img" aria-label="${esc(item.name)}的${size}${skins[skin][0]}预览"></canvas></div>`;
 }
 
-function effectCover(item) {
+function effectCover(item, mode = 'detail') {
   const media = atlasMedia[item.slug];
   const previewType = media.license ? '来源示例' : media.originalMethod === 'algorithm' ? '效果演示' : '技法示意';
-  return `<div class="cover atlas-picture"><img loading="lazy" decoding="async" src="${esc(media.file)}" alt="${esc(item.name)}：${esc(media.title)}">
+  return `<div class="cover atlas-picture">${coverImage(media.file, item.name + '：' + media.title, mode)}
     <small class="media-label">${previewType}</small></div>`;
 }
 
@@ -113,9 +136,18 @@ function atlasImageCredit(media) {
   return `<p class="credit">图像 ${esc(media.artist)} · ${link(media.license, licenseUrl)} · ${link('图片出处',media.page)}</p>`;
 }
 
-function styleCard(item) {
+function styleCard(item, mode) {
+  if (item.film) {
+    return `<article class="card">
+      ${styleArt(item, mode)}
+      <div class="card-body"><div class="meta">${esc(item.group)} <span>${esc(item.duration)}</span></div>
+      <h3>${detailsButton(item.name,item.id)}</h3><p class="en">${esc(item.en)}</p>
+      <p class="description">《${esc(item.film)}》</p>
+      <div class="card-actions">${act('复制参考提示词','copy-opuscar',item.id,'primary')} ${link('官方样片',item.source.url)}</div>
+      </div></article>`;
+  }
   return `<article class="card">
-    ${styleArt(item)}
+    ${styleArt(item, mode)}
     <div class="card-body"><div class="meta">${esc(item.group)} <span>${item.level === 'A' ? '换题即用' : item.level === 'B' ? '换题需改' : '特定题材'}</span></div>
     <h3>${detailsButton(item.name,item.id)}</h3><p class="en">${esc(item.en)}</p>
     <p class="description">${esc(item.description)}</p>
@@ -124,9 +156,9 @@ function styleCard(item) {
     </div></article>`;
 }
 
-function atlasCard(item) {
+function atlasCard(item, mode) {
   return `<article class="card">
-    ${effectCover(item)}
+    ${effectCover(item, mode)}
     <div class="card-body"><div class="meta">${item.kind === 'historical' ? '年代史' : '机器技法'} <span>${esc(atlasGroup(item))}${atlasVideos[item.slug] ? ' · 视频片段' : ''}</span></div>
     <h3>${detailsButton(item.name,item.slug)}</h3><p class="en">${esc(item.en)}</p>
     <div class="card-actions">${act('复制提示词','copy-atlas',item.slug,'primary')} ${act('详情','detail',item.slug,'subtle')} ${link('官方原页',atlasBase+item.url)}</div></div></article>`;
@@ -171,7 +203,7 @@ class Library {
   #tail;
   #loadObserver = new IntersectionObserver(entries => {
     if (entries.some(entry => entry.isIntersecting && entry.target === this.#tail)) this.#appendResults();
-  }, {rootMargin:'380px 0px'});
+  }, {rootMargin:'0px 0px 1250px'});
   #selection = [];
   #mixOptions = { colors:'', character:'' };
   #noticeTimer;
@@ -184,7 +216,10 @@ class Library {
     }
     const params = new URLSearchParams(location.search);
     this.#view = Object.hasOwn(pages, params.get('view')) ? params.get('view') : 'styles';
+    this.#filters.styles.collection = params.get('source') === 'opuscar' ? 'opuscar' : 'own';
     this.#menus = new FilterMenus(document,this.#applyFilter);
+    document.addEventListener('load', this.#revealCover, true);
+    document.addEventListener('error', this.#recoverCover, true);
     this.#app.addEventListener('click', this.#onClick);
     this.#app.addEventListener('input', this.#onInput);
     this.#app.addEventListener('change', this.#onChange);
@@ -209,11 +244,31 @@ class Library {
     if (id) this.#showDetail(id, false);
   }
 
+  #revealCover = async ({target: image}) => {
+    if (!image.matches?.('img[data-card-image]')) return;
+    try {
+      await image.decode();
+      image.dataset.ready = 'true';
+    } catch {
+      // Preserve the preview when the image cannot be decoded.
+    }
+  };
+
+  #recoverCover = ({target: image}) => {
+    const original = image.dataset?.original;
+    if (!original) return;
+    delete image.dataset.original;
+    image.src = original;
+  };
+
   #restore = () => {
     const params = new URLSearchParams(location.search);
     const view = Object.hasOwn(pages, params.get('view')) ? params.get('view') : 'styles';
+    const collection = params.get('source') === 'opuscar' ? 'opuscar' : 'own';
+    const stylesChanged = view === 'styles' && this.#filters.styles.collection !== collection;
+    if (stylesChanged) Object.assign(this.#filters.styles, { collection, group:'all' });
     if (this.#dialog.open) this.#dialog.close();
-    if (view !== this.#view) {
+    if (view !== this.#view || stylesChanged) {
       this.#view = view;
       this.#renderPage();
     }
@@ -226,6 +281,7 @@ class Library {
     url.search = '';
     url.hash = '';
     if (this.#view !== 'styles') url.searchParams.set('view',this.#view);
+    else if (this.#filters.styles.collection === 'opuscar') url.searchParams.set('source','opuscar');
     if (item) url.searchParams.set('item',item);
     history[push ? 'pushState' : 'replaceState'](null,'',url);
   };
@@ -236,10 +292,11 @@ class Library {
     this.#tail = undefined;
     this.#player.clear(this.#app);
     const [name, intro, set] = pages[this.#view];
+    const loadingMotion = this.#view === 'motion' && !motionCatalog;
     const counts = this.#view === 'atlas' ? '504 项 · 321 年代史 · 183 机器技法'
-      : this.#view === 'motion' ? '192 项 · 8 个系列'
+      : this.#view === 'motion' && motionCatalog ? motionCatalog.count + ' 项 · ' + motionCatalog.packs.length + ' 个系列'
       : this.#view === 'white' ? set.length + ' 个动作样片'
-      : this.#view === 'styles' ? set.length + ' 套参考风格' : '';
+      : this.#view === 'styles' ? styles.length + ' 套个人风格 · ' + opuscarStyles.length + ' 项公开参考' : '';
     const subtitle = intro;
     this.#app.innerHTML = `
       <header class="site-header"><div class="topline wrap">
@@ -255,11 +312,11 @@ class Library {
       <main id="main" class="wrap">
         <header class="section-head">
           <div><h1>${name}</h1><p>${subtitle}</p></div>
-          ${counts ? `<p class="catalog-count">${counts}</p>` : ''}
+          ${counts || loadingMotion ? `<p class="catalog-count" ${loadingMotion ? 'hidden' : ''}>${counts}</p>` : ''}
         </header>
         ${this.#view === 'mix' ? '<section id="mix"></section>' : `
         <section aria-label="筛选${name}">
-          <div class="filters" id="filters">${this.#filterControls()}</div>
+          <div class="filters" id="filters">${loadingMotion ? '' : this.#filterControls()}</div>
           <div class="results-head"><p id="result-count" role="status"></p>
           ${['motion','white'].includes(this.#view) ? act(this.#player.paused ? '播放样张' : '暂停样张','pause') : ''}</div>
           <div id="results" tabindex="-1"></div>
@@ -268,22 +325,44 @@ class Library {
       <footer class="wrap site-footer">
         <span>视觉素材图鉴 · Peiiii</span>
         <div>${link('原片参考',douyinSource)} ${link('LetzAI',atlasBase)} ${link('Motion Prompt',motionBase)}
-        ${link('Lemo-Opuscar','https://lemomo-ai.github.io/lemo-opuscar/zh/')}</div>
+        ${link('Lemo-Opuscar',opuscarBase)}</div>
       </footer>`;
     document.title = name + ' · 视觉素材图鉴';
     if (this.#view === 'mix') this.#renderMix();
+    else if (loadingMotion) this.#renderMotionCatalog();
     else this.#renderResults();
+  };
+
+  #renderMotionCatalog = async () => {
+    const results = this.#app.querySelector('#results');
+    results.innerHTML = '<p role="status">正在读取 Motion Prompt 目录…</p>';
+    try {
+      const { elements } = await loadMotionCatalog();
+      this.#slugs.set('motion', new Map(elements.map(item => [item.id, item])));
+      if (!results.isConnected) return;
+      const count = this.#app.querySelector('.catalog-count');
+      count.textContent = motionCatalog.count + ' 项 · ' + motionCatalog.packs.length + ' 个系列';
+      count.hidden = false;
+      this.#app.querySelector('#filters').innerHTML = this.#filterControls();
+      this.#renderResults();
+      const id = new URLSearchParams(location.search).get('item');
+      if (id) this.#showDetail(id, false);
+    } catch {
+      results.innerHTML = `<div class="empty"><p>暂时无法读取 Motion Prompt 目录。</p>${act('重试','retry-motion')}</div>`;
+    }
   };
 
   #filterControls = () => {
     const f = this.#filters[this.#view];
-    const search = this.#view === 'white' ? '搜动作、代号、用途…' : '搜索中文或英文名称…';
+    const search = this.#view === 'white' ? '搜动作、用途、口播例句…' : '搜索中文或英文名称…';
     const standard = `<label class="search"><span class="visually-hidden">搜索</span><span class="glass-icon" aria-hidden="true"></span><input type="search" data-filter="query" value="${esc(f.query)}" placeholder="${search}"></label>`;
     const all = (label, items) => [['all',label],...items];
     const select = (key,label,items) => groupSelect(key,label,items,f[key]);
     if (this.#view === 'styles') {
-      const groups = [...new Set(styles.map(item => item.group))];
-      return standard + select('group','分类',all('全部风格',groups));
+      const entries = f.collection === 'opuscar' ? opuscarStyles : styles;
+      const groups = [...new Set(entries.map(item => item.group))];
+      return quickFilters('collection','风格来源',styleCollections,f.collection)
+        + standard + select('group','分类',all('全部风格',groups));
     }
     if (this.#view === 'atlas') {
       const groups = [...new Map(effects.filter(item => f.kind === 'all' || item.kind === f.kind)
@@ -294,8 +373,9 @@ class Library {
         <label class="check"><input type="checkbox" data-filter="videos" ${f.videos ? 'checked' : ''}>仅看有视频片段</label>`;
     }
     if (this.#view === 'motion') {
+      const { packs, elements } = motionCatalog;
       const activePacks = packs.filter(pack => {
-        const entries = motions.filter(item => item.pack === pack.pack);
+        const entries = elements.filter(item => item.pack === pack.pack);
         return this.#inMotionTheme(entries, f.group);
       });
       const categories = [...new Map(activePacks.filter(pack => f.pack === 'all' || pack.pack === f.pack)
@@ -304,7 +384,8 @@ class Library {
         select('pack','系列', all('全部系列',activePacks.map(pack => [pack.pack,zh(pack.title)]))) +
         select('category','分类',all('全部分类',categories));
     }
-    return standard + select('added','入库时间',all('所有日期',[['week','最近 7 天'],['month','最近 30 天'],['custom','日期范围']])) +
+    return quickFilters('type','常用用途',whiteShortcuts,f.type)
+      + standard + select('added','入库时间',all('所有日期',[['week','最近 7 天'],['month','最近 30 天'],['custom','日期范围']])) +
       (f.added === 'custom' ? `<label class="filter"><span>开始日期</span><input type="date" data-filter="after" value="${esc(f.after)}"></label>
       <label class="filter"><span>截止日期</span><input type="date" data-filter="before" value="${esc(f.before)}"></label>` : '') +
       select('duration','时长',all('全部时长',['≤2 秒','2–5 秒','5–10 秒','>10 秒'])) +
@@ -322,16 +403,23 @@ class Library {
   #getRows = () => {
     const f = this.#filters[this.#view];
     const match = (...parts) => searchable(f.query,...parts);
-    if (this.#view === 'styles') return styles.filter(x => (f.group === 'all' || x.group === f.group)
-      && match(x.name,x.en,x.group,x.description,x.use,x.id));
+    if (this.#view === 'styles') {
+      const entries = f.collection === 'opuscar' ? opuscarStyles : styles;
+      return entries.filter(x => (f.group === 'all' || x.group === f.group)
+        && match(x.name,x.en,x.group,x.description,x.use,x.film,x.tags,x.id));
+    }
     if (this.#view === 'atlas') {
       return effects.filter(x => (f.kind === 'all' || x.kind === f.kind) && (f.group === 'all' || String(x.group) === f.group)
         && (!f.images || atlasMedia[x.slug]?.license) && (!f.videos || atlasVideos[x.slug]) && match(x.name,x.en,x.slug,atlasGroup(x)))
         .sort((a,b) => Number(a.kind==='digital')-Number(b.kind==='digital') || String(a.group).localeCompare(String(b.group)));
     }
-    if (this.#view === 'motion') return motions.filter(x => this.#inMotionTheme([x],f.group) &&
-      (f.pack === 'all' || x.pack === f.pack) && (f.category === 'all' || x.category === f.category) &&
-      match(zh(x.name),x.name.en,x.id,x.slug,x.tags,motionAliases[x.slug],categoryName(x),packName(x.pack),zh(x.meaning)));
+    if (this.#view === 'motion') {
+      const id = f.query.trim().match(/^#?\s*(\d{1,3})$/);
+      return motionCatalog.elements.filter(x => this.#inMotionTheme([x],f.group) &&
+        (f.pack === 'all' || x.pack === f.pack) && (f.category === 'all' || x.category === f.category) &&
+        (id ? Number(x.id) === Number(id[1]) : match(zh(x.name),x.name.en,x.slug,x.tags,
+          motionAliases[x.slug],categoryName(x),packName(x.pack),zh(x.meaning),zh(x.use),zh(x.summary))));
+    }
     const date = new Date();
     const ending = item => new Date(item.added + 'T23:59:59+08:00').getTime();
     const filtered = whiteModels.filter(x => {
@@ -341,7 +429,7 @@ class Library {
         : f.added !== 'custom' || ((!f.after || x.added >= f.after) && (!f.before || x.added <= f.before));
       return added && (f.group === 'all' || x.group === f.group) && (f.relation === 'all' || x.relation === f.relation)
         && (f.type === 'all' || x.type === f.type) && (f.duration === 'all' || f.duration === timeGroup)
-        && match(x.name,x.id,x.use,x.description);
+        && match(x.name,x.id,x.use,x.description,x.example);
     });
     if (f.sort === '原始顺序') return filtered;
     const direction = f.sort === sortDefault ? -1 : 1;
@@ -372,7 +460,9 @@ class Library {
     const list = this.#app.querySelector('#result-list');
     const focusedTail = this.#tail.contains(document.activeElement);
     const rowGroups = new Map();
-    const groupKey = this.#view === 'atlas' ? atlasGroup : this.#view === 'motion' ? item => packName(item.pack) : () => '';
+    const groupKey = this.#view === 'atlas' ? atlasGroup
+      : this.#view === 'motion' ? item => packName(item.pack)
+      : this.#view === 'styles' && this.#filters.styles.collection === 'opuscar' ? item => item.group : () => '';
     for (const row of this.#rows.slice(this.#shown,this.#shown + batchSize)) {
       const group = groupKey(row);
       if (!rowGroups.has(group)) rowGroups.set(group,[]);
@@ -380,6 +470,7 @@ class Library {
     }
 
     let firstNewCard;
+    let position = this.#shown;
     const card = renderCard[this.#view];
     for (const [group, items] of rowGroups) {
       let section = list.lastElementChild;
@@ -390,7 +481,9 @@ class Library {
         section.innerHTML = `${group ? `<h2 class="group-title">${esc(group)}</h2>` : ''}<div class="grid ${this.#view === 'atlas' ? 'compact' : ''}"></div>`;
         list.append(section);
       }
-      const fragment = document.createRange().createContextualFragment(items.map(card).join(''));
+      const fragment = document.createRange().createContextualFragment(
+        items.map(item => card(item, position++ < 2 ? 'priority' : 'lazy')).join('')
+      );
       firstNewCard ??= fragment.firstElementChild;
       this.#mountPreviews(fragment);
       section.querySelector('.grid').append(fragment);
@@ -405,7 +498,7 @@ class Library {
   #mountPreviews = root => {
     for (const canvas of root.querySelectorAll('[data-motion]')) {
       const item = this.#slugs.get('motion').get(canvas.dataset.motion);
-      this.#player.mountMotion(canvas,item,packs.find(pack=>pack.pack===item.pack));
+      this.#player.mountMotion(canvas,item,motionCatalog.packs.find(pack=>pack.pack===item.pack));
     }
     for (const canvas of root.querySelectorAll('[data-white]')) {
       this.#player.mountWhite(canvas,this.#slugs.get('white').get(canvas.dataset.white),canvas.dataset.skin);
@@ -463,6 +556,14 @@ class Library {
     let body;
     switch (this.#view) {
       case 'styles':
+        if (item.film) {
+          body = `${styleArt(item)}<p>${esc(item.group)} · 《${esc(item.film)}》 · ${esc(item.duration)}</p>
+            <h3>参考提示词</h3><pre>${esc(opuscarPrompt(item))}</pre>
+            <div class="card-actions">${act('复制参考提示词','copy-opuscar',item.id,'primary')} ${link('官方样片与风格说明',item.source.url)}</div>
+            <p class="credit">${item.stationCover ? '工位图' : '样片封面'}经缩放 · ${item.artist ? esc(item.artist) + ' · ' : ''}${link('Lemo-Opuscar by Lemomo (LemoLab)',opuscarBase)} ·
+              ${link('CC BY 4.0','https://creativecommons.org/licenses/by/4.0/')} · ${link('图像来源',item.imageSource)}</p>`;
+          break;
+        }
         body = `${styleArt(item)}<div class="palette" aria-label="参考配色">${item.colors.map(color=>`<span><i style="background:${esc(color)}"></i>${esc(color)}</span>`).join('')}</div>
           <p>${esc(item.description)}</p><p><b>适合</b> ${esc(item.use)}</p>
           <h3>提示词</h3><pre>${esc(stylePrompt(item))}</pre>
@@ -493,8 +594,10 @@ class Library {
           ${act(this.#player.paused?'播放样张':'暂停样张','pause')}
           </div><div id="white-stage">${whiteCanvas(item,this.#whiteFormat,this.#whiteSkin)}</div>
           <p>${esc(item.description)}</p><p><b>适合</b> ${esc(item.use)} · ${item.duration} 秒</p>
+          ${item.example ? `<p><b>口播示例</b> ${esc(item.example)}</p>` : ''}
           <h3>动作配置</h3><pre id="white-config">${esc(this.#whiteConfig(item))}</pre>
-          <div class="card-actions">${act('复制调用配置','copy-white',item.id,'primary')} ${link('对照原片约 04:08',douyinSource)}</div>`;
+          <div class="card-actions">${act('复制调用配置','copy-white',item.id,'primary')}
+            ${item.source === 'video' ? link('对照原片约 04:08',douyinSource) : '<span class="credit">本站原创白模</span>'}</div>`;
     }
     this.#dialog.innerHTML = `<header class="detail-head"><div><h2 id="detail-title">${esc(title)}</h2>${en ? `<p>${esc(en)}</p>` : ''}</div>
       <button type="button" class="action close" data-action="close" aria-label="关闭详情" autofocus>×</button>
@@ -640,7 +743,9 @@ class Library {
       case 'detail': this.#showDetail(id); break;
       case 'close': this.#dialog.close(); break;
       case 'retry-atlas': this.#loadAtlas(this.#opened); break;
+      case 'retry-motion': this.#renderMotionCatalog(); break;
       case 'copy-style': this.#copy(stylePrompt(item)); break;
+      case 'copy-opuscar': this.#copy(opuscarPrompt(item)); break;
       case 'copy-motion': this.#copy(motionPrompt(item)); break;
       case 'copy-name': this.#copy(zh(item.name)); break;
       case 'copy-atlas': this.#copyAtlas(item,button); break;
@@ -690,6 +795,10 @@ class Library {
     if (f[key] === value) return;
     f[key] = value;
     if (key === 'kind') f.group = 'all';
+    if (key === 'collection') {
+      f.group = 'all';
+      this.#updateUrl(true);
+    }
     if (key === 'pack' || (this.#view === 'motion' && key === 'group')) f.category = 'all';
     if (this.#view === 'motion' && key === 'group') f.pack = 'all';
     if (trigger) {

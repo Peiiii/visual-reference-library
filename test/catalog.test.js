@@ -1,12 +1,15 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import {
-  effects, motions, packs, styles, whiteModels,
-  searchable, stylePrompt, pairStyles, mixPrompt, whitePrompt, zh, isPhysics,
+  effects, styles, opuscarStyles, whiteModels,
+  searchable, stylePrompt, opuscarPrompt, pairStyles, mixPrompt, whitePrompt, zh, isPhysics, motionTheme,
 } from '../src/data.js';
 import atlasMedia from '../data/atlas-media.json' with { type: 'json' };
+import coverPreviews from '../data/cover-previews.json' with { type: 'json' };
+import motionCatalog from '../data/motion-prompt.json' with { type: 'json' };
+import { whiteTechniques } from '../src/white-animations.js';
 
 test('LetzAI includes all 504 distinct public entries and has 29 categories', () => {
   assert.equal(effects.length, 504);
@@ -20,15 +23,27 @@ test('LetzAI includes all 504 distinct public entries and has 29 categories', ()
   }
 });
 
-test('Motion Prompt includes every ID in the pinned 192-entry release', () => {
-  assert.equal(packs.length, 8);
-  assert.deepEqual(motions.map(item => +item.id), Array.from({length:192},(_,i)=>i+1));
-  assert.ok(motions.some(item => isPhysics(item) && item.slug === 'overshoot'));
+test('Motion Prompt includes every entry and preview asset in the pinned release', () => {
+  const { revision, count, elements, packs } = motionCatalog;
+  assert.match(revision, /^[a-f0-9]{40}$/);
+  assert.equal(count, 240);
+  assert.equal(packs.length, 10);
+  assert.deepEqual(elements.map(item => +item.id), Array.from({length:count},(_,i)=>i+1));
+  assert.ok(elements.some(item => isPhysics(item) && item.slug === 'overshoot'));
   for (const pack of packs) {
-    assert.equal(motions.filter(item => item.pack === pack.pack).length, 24);
+    const entries = elements.filter(item => item.pack === pack.pack);
+    assert.equal(entries.length, pack.count);
+    assert.equal(entries[0].id, pack.first);
+    assert.equal(entries.at(-1).id, pack.last);
     assert.ok(existsSync('public/motion-prompt/' + pack.pack + '.js'));
+    for (const image of pack.images ?? []) assert.ok(existsSync('public/motion-prompt/' + image), image);
+    for (const item of entries) {
+      assert.ok(pack.categories.some(category => category.slug === item.category), item.slug);
+      assert.ok(item.name['zh-Hans'] && item.ask['zh-Hans'] && item.spec.en?.length, item.slug);
+    }
   }
-  for (const item of motions) assert.ok(zh(item.name) && zh(item.ask));
+  assert.equal(motionTheme(elements[192]), '图像画风');
+  assert.equal(motionTheme(elements[216]), '图解图表');
 });
 
 test('every Atlas entry has a distinct local WebP and verifiable cover provenance', () => {
@@ -67,6 +82,41 @@ test('style entries are editable and produce their own copyable configuration', 
   assert.ok(!searchable('riso 水墨', 'Riso 小报', '印刷版画'));
 });
 
+test('the full Opuscar style index has covers, source links and copyable references', () => {
+  assert.equal(opuscarStyles.length, 99);
+  assert.equal(new Set(opuscarStyles.map(item => item.id)).size, 99);
+  assert.equal(new Set(opuscarStyles.map(item => item.group)).size, 15);
+  for (const item of opuscarStyles) {
+    assert.ok(item.name && item.en && item.film, item.id);
+    assert.ok(item.source.url.endsWith('/styles/' + item.id.slice(8) + '/'), item.id);
+    assert.ok(coverPreviews[item.image] && existsSync('public' + item.image), item.id);
+    assert.ok(opuscarPrompt(item).includes(item.source.url), item.id);
+  }
+});
+
+test('all WebP covers have an inline preview and versioned smaller thumbnails when available', () => {
+  const originals = ['atlas-media', 'samples', 'motion-prompt/img'].flatMap(directory =>
+    readdirSync('public/' + directory)
+      .filter(name => name.endsWith('.webp'))
+      .map(name => '/' + directory + '/' + name)
+  ).sort();
+  assert.deepEqual(Object.keys(coverPreviews).sort(), originals);
+  const thumbnails = new Set();
+  for (const [original, { preview, thumb }] of Object.entries(coverPreviews)) {
+    const inline = Buffer.from(preview, 'base64');
+    assert.equal(inline.toString('ascii', 8, 12), 'WEBP', original);
+    assert.ok(inline.length <= 400, original);
+    if (!thumb) continue;
+    assert.match(thumb, /^\/cover-thumbs\/[^/]+\.[a-f0-9]{12}\.webp$/);
+    const bytes = readFileSync('public' + thumb);
+    const hash = createHash('sha256').update(bytes).digest('hex').slice(0, 12);
+    assert.ok(thumb.endsWith('.' + hash + '.webp'), thumb);
+    assert.ok(bytes.length < readFileSync('public' + original).length * 0.9, thumb);
+    thumbnails.add(thumb.split('/').at(-1));
+  }
+  assert.deepEqual(readdirSync('public/cover-thumbs').sort(), [...thumbnails].sort());
+});
+
 test('three to five selected styles form unique pairs with individual context', () => {
   const pool = styles.slice(0,5);
   assert.equal(pairStyles(pool.slice(0,2)).length, 0);
@@ -80,7 +130,7 @@ test('three to five selected styles form unique pairs with individual context', 
 });
 
 test('all on-screen white-model cases are represented with independent timing', () => {
-  assert.deepEqual(whiteModels.map(item=>item.id), [
+  assert.deepEqual(whiteModels.filter(item => item.source === 'video').map(item=>item.id), [
     'word-topple-ground', 'word-orbit-ring', 'fill-collapse-to-object', 'slam-behind-strike',
     'page-fold-turn', 'word-cut-backdrop', 'screen-step-focus',
   ]);
@@ -89,4 +139,22 @@ test('all on-screen white-model cases are represented with independent timing', 
     const output = whitePrompt(item,aspect,skin);
     assert.ok(output.includes(item.prompt) && output.includes(aspect) && output.includes(skin));
   }
+});
+
+test('original white models have unique playable techniques and span all catalog facets', () => {
+  const originals = whiteModels.filter(item => item.source === 'original');
+  assert.equal(whiteModels.length, 55);
+  assert.equal(new Set(whiteModels.map(item => item.id)).size, 55);
+  assert.equal(new Set(originals.map(item => item.relation)).size, 12);
+  assert.equal(new Set(originals.map(item => item.type)).size, 12);
+  assert.equal(new Set(originals.map(item => item.group)).size, 8);
+  const variants = new Set();
+  for (const item of originals) {
+    const { technique, variant, cue } = item.choreography;
+    assert.ok(Object.hasOwn(whiteTechniques, technique), item.id);
+    assert.ok([0, 1, 2, 3].includes(variant) && cue && item.duration > 0, item.id);
+    variants.add(technique + ':' + variant);
+    assert.ok(whitePrompt(item, '竖版 9:16', '纸本蓝').includes(item.example), item.id);
+  }
+  assert.equal(variants.size, originals.length);
 });

@@ -15,7 +15,9 @@ export default defineConfig({
   preview: { proxy },
   build: {
     rollupOptions: {
-      output: { manualChunks: id => id.endsWith('/data/atlas-media.json') ? 'atlas-covers' : undefined },
+      output: {
+        manualChunks: id => /\/data\/(atlas-media|cover-previews)\.json$/.test(id) ? 'catalog-covers' : undefined,
+      },
     },
   },
 });

@@ -10,7 +10,8 @@
     "use": "一句主题或核心词",
     "prompt": "0–0.55 秒抬字，0.9–1.8 秒以底边为轴翻倒，2.1 秒后依序给出三个标记。",
     "version": "1.0.0",
-    "added": "2026-11-21"
+    "added": "2026-11-21",
+    "source": "video"
   },
   {
     "id": "word-orbit-ring",
@@ -23,7 +24,8 @@
     "use": "一句术语或一组相邻概念",
     "prompt": "以圆心为锚，起始 0.7 秒铺开圆环和名字，0.7–3.8 秒旋转，每一词组转到上方短暂停留。",
     "version": "1.0.0",
-    "added": "2026-11-21"
+    "added": "2026-11-21",
+    "source": "video"
   },
   {
     "id": "fill-collapse-to-object",
@@ -36,7 +38,8 @@
     "use": "从抽象说明回到实物",
     "prompt": "满屏矩形由四侧收向物件边界，0.55 秒后短回弹，再把平面矩形替换成同位置实物。",
     "version": "1.0.0",
-    "added": "2026-11-21"
+    "added": "2026-11-21",
+    "source": "video"
   },
   {
     "id": "slam-behind-strike",
@@ -49,7 +52,8 @@
     "use": "指出误区或错误想法",
     "prompt": "维持前中后景层级，大字从上落下，0.3 秒撞停，关键字移近成标签，划两道线形成叉。",
     "version": "1.0.0",
-    "added": "2026-11-21"
+    "added": "2026-11-21",
+    "source": "video"
   },
   {
     "id": "page-fold-turn",
@@ -62,7 +66,8 @@
     "use": "流程推进、章节转场",
     "prompt": "角点在 0.5 秒被抓住，沿斜线卷起 110°，纸面离开后让后页完整停留一拍。",
     "version": "1.0.0",
-    "added": "2026-11-21"
+    "added": "2026-11-21",
+    "source": "video"
   },
   {
     "id": "word-cut-backdrop",
@@ -75,7 +80,8 @@
     "use": "连续改写、三种相反选项",
     "prompt": "使用四个等距节拍，画面硬切时保留人物轴线。错位只出现在切点，不拖成渐变。",
     "version": "1.0.0",
-    "added": "2026-11-21"
+    "added": "2026-11-21",
+    "source": "video"
   },
   {
     "id": "screen-step-focus",
@@ -87,6 +93,967 @@
     "description": "步骤条依次确认，录屏整体推进，在目标位置落下提示卡。",
     "use": "录屏操作、连接流程、成功反馈",
     "prompt": "起始显示步骤序列，窗口由下进入，三次短高亮对齐点击。最终成功卡在固定位置回弹后停住。",
+    "version": "1.0.0",
+    "added": "2026-11-21",
+    "source": "video"
+  },
+  {
+    "id": "reveal-underline",
+    "name": "划线揭题",
+    "duration": 2.8,
+    "group": "标题类",
+    "relation": "揭示",
+    "type": "钩子",
+    "description": "疑问标题从中心短线展开，上下裁切同步打开。",
+    "use": "视频开场提出核心问题",
+    "example": "刚才这个结果，是怎么来的？",
+    "prompt": "疑问标题从中心短线展开，上下裁切同步打开。前 0.34 秒定场，至 2.13 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "reveal",
+      "variant": 0,
+      "cue": "一个问题"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "reveal-caption",
+    "name": "字幕条升出",
+    "duration": 3.6,
+    "group": "叠加卡类",
+    "relation": "揭示",
+    "type": "引用",
+    "description": "下方横线向上撑开字幕安全区，留足阅读时间。",
+    "use": "采访摘句或原话引用",
+    "example": "我真正改变的是流程。",
+    "prompt": "下方横线向上撑开字幕安全区，留足阅读时间。前 0.43 秒定场，至 2.74 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "reveal",
+      "variant": 1,
+      "cue": "原话摘录"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "reveal-iris",
+    "name": "圆窗开场",
+    "duration": 3.2,
+    "group": "转场类（片头）",
+    "relation": "揭示",
+    "type": "钩子",
+    "description": "中央圆窗向外扩展，从局部到全貌。",
+    "use": "物件细节切入主题",
+    "example": "先看看这个部件里面有什么。",
+    "prompt": "中央圆窗向外扩展，从局部到全貌。前 0.38 秒定场，至 2.43 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "reveal",
+      "variant": 2,
+      "cue": "看里面"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "reveal-cover",
+    "name": "遮板退场",
+    "duration": 4.4,
+    "group": "概念类",
+    "relation": "揭示",
+    "type": "术语",
+    "description": "两片遮板分别向上下退开，露出内部示意。",
+    "use": "拆解系统结构或构件",
+    "example": "这一层负责接住输入。",
+    "prompt": "两片遮板分别向上下退开，露出内部示意。前 0.53 秒定场，至 3.34 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "reveal",
+      "variant": 3,
+      "cue": "结构层"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "stack-receipts",
+    "name": "证据票据叠放",
+    "duration": 5.4,
+    "group": "叠加卡类",
+    "relation": "累积",
+    "type": "证据",
+    "description": "三份票据错峰落在同一桌面，保留各自的边缘。",
+    "use": "三条证据支持同一结论",
+    "example": "这一点有三份记录可以核对。",
+    "prompt": "三份票据错峰落在同一桌面，保留各自的边缘。前 0.65 秒定场，至 4.1 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "stack",
+      "variant": 0,
+      "cue": "证据"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "stack-milestones",
+    "name": "里程碑依次插旗",
+    "duration": 6.8,
+    "group": "连接类",
+    "relation": "累积",
+    "type": "列举",
+    "description": "沿横轴依次插入节点，连线随节点变长。",
+    "use": "发展过程、版本迭代",
+    "example": "从第一次试验，到终于可以交付。",
+    "prompt": "沿横轴依次插入节点，连线随节点变长。前 0.82 秒定场，至 5.17 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "stack",
+      "variant": 1,
+      "cue": "时间线"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "stack-comments",
+    "name": "评论气泡堆叠",
+    "duration": 5.8,
+    "group": "录屏类",
+    "relation": "累积",
+    "type": "证据",
+    "description": "三个气泡从侧边滑入并向上排队。",
+    "use": "聚合同类用户反馈",
+    "example": "相同的建议在几条评论里都出现了。",
+    "prompt": "三个气泡从侧边滑入并向上排队。前 0.7 秒定场，至 4.41 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "stack",
+      "variant": 2,
+      "cue": "反馈"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "stack-layers",
+    "name": "模块逐层搭建",
+    "duration": 7.2,
+    "group": "概念类",
+    "relation": "累积",
+    "type": "步骤",
+    "description": "三个平层由底向上拼接成截面。",
+    "use": "交代产品底座、能力和界面",
+    "example": "底层打好以后，上面的两个模块就能接上。",
+    "prompt": "三个平层由底向上拼接成截面。前 0.86 秒定场，至 5.47 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "stack",
+      "variant": 3,
+      "cue": "层级"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "count-digits",
+    "name": "数字翻牌",
+    "duration": 3.2,
+    "group": "标题类",
+    "relation": "计数",
+    "type": "数字",
+    "description": "数字在一张卡内逐级跳动，停在最终值。",
+    "use": "量化成果、交代总量",
+    "example": "最终我们收到了 128 条回复。",
+    "prompt": "数字在一张卡内逐级跳动，停在最终值。前 0.38 秒定场，至 2.43 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "count",
+      "variant": 0,
+      "cue": "128"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "count-progress",
+    "name": "进度尺推满",
+    "duration": 5.5,
+    "group": "录屏类",
+    "relation": "计数",
+    "type": "步骤",
+    "description": "水平进度尺随四个节点推进，百分比同步更新。",
+    "use": "加载、流程完成度",
+    "example": "完成前三步，就到了百分之七十五。",
+    "prompt": "水平进度尺随四个节点推进，百分比同步更新。前 0.66 秒定场，至 4.18 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "count",
+      "variant": 1,
+      "cue": "进度"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "count-ring",
+    "name": "环形比例读数",
+    "duration": 4.2,
+    "group": "叠加卡类",
+    "relation": "计数",
+    "type": "数字",
+    "description": "外环从顶端顺时针画到指定比例，中心显示读数。",
+    "use": "留存率、占比、调查结果",
+    "example": "这组样本有 76% 做出了同一个选择。",
+    "prompt": "外环从顶端顺时针画到指定比例，中心显示读数。前 0.5 秒定场，至 3.19 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "count",
+      "variant": 2,
+      "cue": "76%"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "count-bins",
+    "name": "点位汇总成柱状图",
+    "duration": 6.2,
+    "group": "概念类",
+    "relation": "计数",
+    "type": "数字",
+    "description": "四组柱条错峰累加到不同高度。",
+    "use": "比较频次、样本分布",
+    "example": "最高的是第三组。",
+    "prompt": "四组柱条错峰累加到不同高度。前 0.74 秒定场，至 4.71 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "count",
+      "variant": 3,
+      "cue": "次数"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "compare-wipe",
+    "name": "前后对照滑杆",
+    "duration": 4.8,
+    "group": "录屏类",
+    "relation": "对照",
+    "type": "对比",
+    "description": "分割线来回扫过，露出同一位置的两种状态。",
+    "use": "对照修图、交互或界面前后",
+    "example": "拖过去，就能看见前后的区别。",
+    "prompt": "分割线来回扫过，露出同一位置的两种状态。前 0.58 秒定场，至 3.65 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "compare",
+      "variant": 0,
+      "cue": "前/后"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "compare-columns",
+    "name": "双栏差异对照",
+    "duration": 5.6,
+    "group": "标题类",
+    "relation": "对照",
+    "type": "对比",
+    "description": "两块面板左右同时合拢，关键行依次对齐。",
+    "use": "解释两个方案的区别",
+    "example": "这两个方案只有关键一步不同。",
+    "prompt": "两块面板左右同时合拢，关键行依次对齐。前 0.67 秒定场，至 4.26 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "compare",
+      "variant": 1,
+      "cue": "方案 A/方案 B"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "compare-weights",
+    "name": "天平倾斜对照",
+    "duration": 6.4,
+    "group": "概念类",
+    "relation": "对照",
+    "type": "对比",
+    "description": "横梁以中点为轴倾斜，两端权重变化。",
+    "use": "取舍、成本收益比较",
+    "example": "收益更大，但投入也上升了。",
+    "prompt": "横梁以中点为轴倾斜，两端权重变化。前 0.77 秒定场，至 4.86 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "compare",
+      "variant": 2,
+      "cue": "成本/收益"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "compare-ab-flash",
+    "name": "同位 A/B 闪切",
+    "duration": 2.0,
+    "group": "转场类",
+    "relation": "对照",
+    "type": "对比",
+    "description": "框架固定，同一位置的样式按拍交替。",
+    "use": "版式、配色、模板选择",
+    "example": "在切换中注意标题的位置。",
+    "prompt": "框架固定，同一位置的样式按拍交替。前 0.24 秒定场，至 1.52 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "compare",
+      "variant": 3,
+      "cue": "旧/新"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "swap-slide",
+    "name": "中心卡推换",
+    "duration": 3.6,
+    "group": "连接类",
+    "relation": "替换",
+    "type": "过渡",
+    "description": "旧卡向左退，新卡从右补入同一个锚点。",
+    "use": "换列、换章节标识",
+    "example": "这一环节由新的模块接手。",
+    "prompt": "旧卡向左退，新卡从右补入同一个锚点。前 0.43 秒定场，至 2.74 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "swap",
+      "variant": 0,
+      "cue": "旧模块/新模块"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "swap-flip",
+    "name": "空中翻牌换面",
+    "duration": 3.4,
+    "group": "叠加卡类",
+    "relation": "替换",
+    "type": "术语",
+    "description": "折叠宽度到零后翻为另一面。",
+    "use": "切换术语、解释正反面",
+    "example": "从背面看，逻辑完全不同。",
+    "prompt": "折叠宽度到零后翻为另一面。前 0.41 秒定场，至 2.58 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "swap",
+      "variant": 1,
+      "cue": "表面/内部"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "swap-drop",
+    "name": "槽位模块落替",
+    "duration": 4.6,
+    "group": "概念类",
+    "relation": "替换",
+    "type": "步骤",
+    "description": "旧模块下沉后，新模块从顶部落入固定槽位。",
+    "use": "演示替换部件或重做步骤",
+    "example": "取下这个，再放入同规格的模块。",
+    "prompt": "旧模块下沉后，新模块从顶部落入固定槽位。前 0.55 秒定场，至 3.5 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "swap",
+      "variant": 2,
+      "cue": "移出/放入"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "swap-stencil",
+    "name": "横扫换章节",
+    "duration": 2.4,
+    "group": "转场类（片尾）",
+    "relation": "替换",
+    "type": "换段",
+    "description": "一块遮罩横扫全幅，在遮满时切换画面。",
+    "use": "换段或片尾引向下一节",
+    "example": "接下来进入第二节。",
+    "prompt": "一块遮罩横扫全幅，在遮满时切换画面。前 0.29 秒定场，至 1.82 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "swap",
+      "variant": 3,
+      "cue": "本节/下节"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "focus-spotlight",
+    "name": "聚光移位",
+    "duration": 4.6,
+    "group": "录屏类",
+    "relation": "聚焦",
+    "type": "强调",
+    "description": "暗遮罩开孔，从第一个操作点移到第二个。",
+    "use": "定位录屏按钮或节点",
+    "example": "光圈停住的位置，就是下一步要点。",
+    "prompt": "暗遮罩开孔，从第一个操作点移到第二个。前 0.55 秒定场，至 3.5 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "focus",
+      "variant": 0,
+      "cue": "目标"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "focus-zoom",
+    "name": "局部放大窗",
+    "duration": 5.8,
+    "group": "录屏类",
+    "relation": "聚焦",
+    "type": "证据",
+    "description": "小框标记细节，连线指向放大面板。",
+    "use": "放大表格条款、按钮或截图",
+    "example": "放大看这里这一行。",
+    "prompt": "小框标记细节，连线指向放大面板。前 0.7 秒定场，至 4.41 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "focus",
+      "variant": 1,
+      "cue": "放大"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "focus-outline",
+    "name": "重点卡框选",
+    "duration": 3.2,
+    "group": "叠加卡类",
+    "relation": "聚焦",
+    "type": "金句",
+    "description": "周围卡降低对比，方角线从中间向四角展开。",
+    "use": "突出关键词、原话或数字",
+    "example": "这句话值得单独记下来。",
+    "prompt": "周围卡降低对比，方角线从中间向四角展开。前 0.38 秒定场，至 2.43 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "focus",
+      "variant": 2,
+      "cue": "关键句"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "focus-pin",
+    "name": "标注钉点追踪",
+    "duration": 4.8,
+    "group": "叠加卡类",
+    "relation": "聚焦",
+    "type": "强调",
+    "description": "引线端点跟随移动物件，标注始终保持在画面内。",
+    "use": "解释运动中目标的位置",
+    "example": "注意它移动后仍然在这条线上。",
+    "prompt": "引线端点跟随移动物件，标注始终保持在画面内。前 0.58 秒定场，至 3.65 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "focus",
+      "variant": 3,
+      "cue": "这里"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "split-dual",
+    "name": "大卡一分为二",
+    "duration": 4.2,
+    "group": "概念类",
+    "relation": "拆分",
+    "type": "术语",
+    "description": "单卡在中心分为两块，沿左右方向展开。",
+    "use": "区分同名概念或两种分支",
+    "example": "这个总类实际上有两个分支。",
+    "prompt": "单卡在中心分为两块，沿左右方向展开。前 0.5 秒定场，至 3.19 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "split",
+      "variant": 0,
+      "cue": "总类/子类"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "split-quads",
+    "name": "四象限展开",
+    "duration": 5.6,
+    "group": "概念类",
+    "relation": "拆分",
+    "type": "步骤",
+    "description": "中心方块沿四角分离，在四象限停住。",
+    "use": "拆成四个责任项或维度",
+    "example": "把工作分成四个象限来处理。",
+    "prompt": "中心方块沿四角分离，在四象限停住。前 0.67 秒定场，至 4.26 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "split",
+      "variant": 1,
+      "cue": "四块"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "split-exploded",
+    "name": "结构爆炸图",
+    "duration": 6.4,
+    "group": "概念类",
+    "relation": "拆分",
+    "type": "术语",
+    "description": "三层部件沿同一竖轴拉开，连接线同步露出。",
+    "use": "交代部件和装配顺序",
+    "example": "每一层都承担不同功能。",
+    "prompt": "三层部件沿同一竖轴拉开，连接线同步露出。前 0.77 秒定场，至 4.86 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "split",
+      "variant": 2,
+      "cue": "层"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "split-fan",
+    "name": "页签扇形摊开",
+    "duration": 5.2,
+    "group": "叠加卡类",
+    "relation": "拆分",
+    "type": "列举",
+    "description": "多页签绕底部共同锚点扇开。",
+    "use": "列举几个可选菜单或方向",
+    "example": "把三个选项摆在一起看。",
+    "prompt": "多页签绕底部共同锚点扇开。前 0.62 秒定场，至 3.95 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "split",
+      "variant": 3,
+      "cue": "选项"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "merge-hub",
+    "name": "节点归入中心",
+    "duration": 5.3,
+    "group": "概念类",
+    "relation": "聚合",
+    "type": "术语",
+    "description": "外圈节点沿辐射线汇入同一中心块。",
+    "use": "把几个现象归纳成共同原因",
+    "example": "这些现象最后都指向同一个原因。",
+    "prompt": "外圈节点沿辐射线汇入同一中心块。前 0.64 秒定场，至 4.03 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "merge",
+      "variant": 0,
+      "cue": "归纳"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "merge-tiles",
+    "name": "拼块合成卡片",
+    "duration": 5.8,
+    "group": "连接类",
+    "relation": "聚合",
+    "type": "步骤",
+    "description": "四块从外角滑入，边缘对齐形成完整正方形。",
+    "use": "组件合并成一个完整流程",
+    "example": "把四个零件对齐，就得到这个版本。",
+    "prompt": "四块从外角滑入，边缘对齐形成完整正方形。前 0.7 秒定场，至 4.41 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "merge",
+      "variant": 1,
+      "cue": "合成"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "merge-summary",
+    "name": "摘句聚为摘要",
+    "duration": 4.4,
+    "group": "叠加卡类",
+    "relation": "聚合",
+    "type": "金句",
+    "description": "独立短条向同一基线并拢，再收成一段摘要。",
+    "use": "中段总结、压缩信息",
+    "example": "把刚才三句合成一句话，就是这个意思。",
+    "prompt": "独立短条向同一基线并拢，再收成一段摘要。前 0.53 秒定场，至 3.34 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "merge",
+      "variant": 2,
+      "cue": "摘要"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "merge-endcard",
+    "name": "收口成片尾卡",
+    "duration": 3.2,
+    "group": "转场类（片尾）",
+    "relation": "聚合",
+    "type": "换段",
+    "description": "四周分散元素先回收，片尾横卡从中心展开。",
+    "use": "段落收束、展示最后结论",
+    "example": "到这里，只有一条结论需要留下。",
+    "prompt": "四周分散元素先回收，片尾横卡从中心展开。前 0.38 秒定场，至 2.43 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "merge",
+      "variant": 3,
+      "cue": "结论"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "pass-signal",
+    "name": "路径光点传递",
+    "duration": 4.8,
+    "group": "连接类",
+    "relation": "传递",
+    "type": "步骤",
+    "description": "信号点沿折线穿过三个节点，碰到节点时触发亮起。",
+    "use": "数据流、请求、消息转发",
+    "example": "输入先进入处理，接着才发出结果。",
+    "prompt": "信号点沿折线穿过三个节点，碰到节点时触发亮起。前 0.58 秒定场，至 3.65 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "pass",
+      "variant": 0,
+      "cue": "输入/处理/输出"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "pass-pointer",
+    "name": "指针跨窗接力",
+    "duration": 5.6,
+    "group": "录屏类",
+    "relation": "传递",
+    "type": "步骤",
+    "description": "指针从左窗取走标记，沿线拖到右窗。",
+    "use": "讲跨应用复制、拖放和迁移",
+    "example": "把这张卡从左边拖到那个窗口。",
+    "prompt": "指针从左窗取走标记，沿线拖到右窗。前 0.67 秒定场，至 4.26 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "pass",
+      "variant": 1,
+      "cue": "窗口"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "pass-cards",
+    "name": "输入卡穿过处理槽",
+    "duration": 6.2,
+    "group": "连接类",
+    "relation": "传递",
+    "type": "术语",
+    "description": "一张小票进入中间槽，出来时变成结果卡。",
+    "use": "解释输入、处理与输出的变化",
+    "example": "原始记录进来，汇总结果出去。",
+    "prompt": "一张小票进入中间槽，出来时变成结果卡。前 0.74 秒定场，至 4.71 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "pass",
+      "variant": 2,
+      "cue": "处理"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "pass-relay",
+    "name": "四站接力点亮",
+    "duration": 4.0,
+    "group": "转场类（片头）",
+    "relation": "传递",
+    "type": "过渡",
+    "description": "一个节点亮起后向下一站传递，使新路径逐段出现。",
+    "use": "用流程步骤带出开场或新段落",
+    "example": "先接第一棒，然后按这个顺序走。",
+    "prompt": "一个节点亮起后向下一站传递，使新路径逐段出现。前 0.48 秒定场，至 3.04 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "pass",
+      "variant": 3,
+      "cue": "接力"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "sort-rows",
+    "name": "三条榜单重排",
+    "duration": 5.8,
+    "group": "叠加卡类",
+    "relation": "排序",
+    "type": "列举",
+    "description": "三个条目沿竖轴交换位置，视线可追踪每一条。",
+    "use": "排名、优先级或任务顺序",
+    "example": "第三项反超到了第一。",
+    "prompt": "三个条目沿竖轴交换位置，视线可追踪每一条。前 0.7 秒定场，至 4.41 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "sort",
+      "variant": 0,
+      "cue": "榜单"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "sort-columns",
+    "name": "条形图换序",
+    "duration": 6.5,
+    "group": "概念类",
+    "relation": "排序",
+    "type": "数字",
+    "description": "三根等宽柱沿横轴重排，仍保留原高度。",
+    "use": "比较数据前后的顺序变化",
+    "example": "数值没变，排序方式变了。",
+    "prompt": "三根等宽柱沿横轴重排，仍保留原高度。前 0.78 秒定场，至 4.94 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "sort",
+      "variant": 1,
+      "cue": "数值"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "sort-lanes",
+    "name": "把票据分进泳道",
+    "duration": 6.2,
+    "group": "录屏类",
+    "relation": "排序",
+    "type": "步骤",
+    "description": "来源相同的票据分到左右泳道，显示归类结果。",
+    "use": "里程碑看板、操作流程整理",
+    "example": "完成的项目会被移进右侧泳道。",
+    "prompt": "来源相同的票据分到左右泳道，显示归类结果。前 0.74 秒定场，至 4.71 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "sort",
+      "variant": 2,
+      "cue": "待办/完成"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "sort-grid",
+    "name": "网格定位重组",
+    "duration": 5.0,
+    "group": "概念类",
+    "relation": "排序",
+    "type": "对比",
+    "description": "四个方块沿各自的路径回到指定网格坐标。",
+    "use": "矩阵重排、信息归类",
+    "example": "先认清四个方块，再看它们重新就位。",
+    "prompt": "四个方块沿各自的路径回到指定网格坐标。前 0.6 秒定场，至 3.8 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "sort",
+      "variant": 3,
+      "cue": "网格"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "evolve-shape",
+    "name": "圆形过渡为方块",
+    "duration": 4.3,
+    "group": "概念类",
+    "relation": "演化",
+    "type": "术语",
+    "description": "保持中心、尺寸连续，把圆角逐渐收成正方。",
+    "use": "从粗略概念过渡到明确结构",
+    "example": "形状变了，中心位置没动。",
+    "prompt": "保持中心、尺寸连续，把圆角逐渐收成正方。前 0.52 秒定场，至 3.27 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "evolve",
+      "variant": 0,
+      "cue": "变形"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "evolve-timeline",
+    "name": "时间轴长出分支",
+    "duration": 8.1,
+    "group": "连接类",
+    "relation": "演化",
+    "type": "过渡",
+    "description": "主线先增长，随后逐级长出上、下分支。",
+    "use": "历史演进、分支路线",
+    "example": "从这以后，路线分成了两条。",
+    "prompt": "主线先增长，随后逐级长出上、下分支。前 0.97 秒定场，至 6.16 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "evolve",
+      "variant": 1,
+      "cue": "时间"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "evolve-process",
+    "name": "三个状态逐帧接续",
+    "duration": 6.6,
+    "group": "概念类",
+    "relation": "演化",
+    "type": "步骤",
+    "description": "同一物件变形后前移，源状态留成轮廓线。",
+    "use": "版本演进、加工工序",
+    "example": "每完成一道工序，形态就变一次。",
+    "prompt": "同一物件变形后前移，源状态留成轮廓线。前 0.79 秒定场，至 5.02 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "evolve",
+      "variant": 2,
+      "cue": "过程"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "evolve-wave",
+    "name": "平线展开成波形",
+    "duration": 4.6,
+    "group": "转场类",
+    "relation": "演化",
+    "type": "换段",
+    "description": "从静态基线逐步拉出波峰和波谷。",
+    "use": "引入声音、周期或系统波动",
+    "example": "这条线开始变化了。",
+    "prompt": "从静态基线逐步拉出波峰和波谷。前 0.55 秒定场，至 3.5 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "evolve",
+      "variant": 3,
+      "cue": "波形"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "deny-cross",
+    "name": "误区卡画叉",
+    "duration": 3.6,
+    "group": "标题类",
+    "relation": "否定",
+    "type": "强调",
+    "description": "关键字定格，叉线分两笔穿过卡面。",
+    "use": "直指错误论断",
+    "example": "这条听起来合理，其实是误区。",
+    "prompt": "关键字定格，叉线分两笔穿过卡面。前 0.43 秒定场，至 2.74 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "deny",
+      "variant": 0,
+      "cue": "误区"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "deny-strike",
+    "name": "删线纠正术语",
+    "duration": 4.2,
+    "group": "叠加卡类",
+    "relation": "否定",
+    "type": "术语",
+    "description": "第一行被划掉，第二行从下方出现。",
+    "use": "示范删改、区分相近概念",
+    "example": "旧术语划掉，用下面这个。",
+    "prompt": "第一行被划掉，第二行从下方出现。前 0.5 秒定场，至 3.19 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "deny",
+      "variant": 1,
+      "cue": "误写/正解"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "deny-block",
+    "name": "挡板截停错误路径",
+    "duration": 5.3,
+    "group": "概念类",
+    "relation": "否定",
+    "type": "步骤",
+    "description": "移动元素在挡板撞停，并沿原路短退。",
+    "use": "解释不允许的操作或失败原因",
+    "example": "这条路径在挡板处就停了。",
+    "prompt": "移动元素在挡板撞停，并沿原路短退。前 0.64 秒定场，至 4.03 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "deny",
+      "variant": 2,
+      "cue": "阻断"
+    },
+    "source": "original",
+    "version": "1.0.0",
+    "added": "2026-11-21"
+  },
+  {
+    "id": "deny-dismiss",
+    "name": "退回错误提示",
+    "duration": 4.6,
+    "group": "录屏类",
+    "relation": "否定",
+    "type": "证据",
+    "description": "提示卡轻抖，退出至角落并留下失败状态。",
+    "use": "录屏异常和错误反馈",
+    "example": "这个提示表示本次没有提交成功。",
+    "prompt": "提示卡轻抖，退出至角落并留下失败状态。前 0.55 秒定场，至 3.5 秒完成动作，最后静止供阅读。",
+    "choreography": {
+      "technique": "deny",
+      "variant": 3,
+      "cue": "失败"
+    },
+    "source": "original",
     "version": "1.0.0",
     "added": "2026-11-21"
   }

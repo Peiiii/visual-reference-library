@@ -1,0 +1,1593 @@
+{
+  "source": "https://lemomo-ai.github.io/lemo-opuscar/zh/",
+  "revision": "f9e204293930952b61ba921cd8944d05f121beee",
+  "license": "https://github.com/lemomo-ai/lemo-opuscar/blob/f9e204293930952b61ba921cd8944d05f121beee/LICENSE",
+  "entries": [
+    {
+      "id": "opuscar-caption-news",
+      "name": "字幕新闻",
+      "en": "Caption News",
+      "group": "剪辑纪实",
+      "film": "蜜蜂账本",
+      "tags": "Social news Report explainers Data shorts 社媒新闻 报告解读 数据短片",
+      "duration": "1:00",
+      "image": "/samples/opuscar-station-01.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s01-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/caption-news/"
+      }
+    },
+    {
+      "id": "opuscar-newsreel",
+      "name": "1920s 新闻影片",
+      "en": "1920s Newsreel",
+      "group": "剪辑纪实",
+      "film": "膝盖警报",
+      "tags": "History stories Fads & eras Anniversaries 历史故事 潮流与年代 周年纪念",
+      "duration": "0:55",
+      "image": "/samples/opuscar-station-01.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s01-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/newsreel/"
+      }
+    },
+    {
+      "id": "opuscar-countdown",
+      "name": "实时倒计时分屏",
+      "en": "Live Countdown Split-screen",
+      "group": "剪辑纪实",
+      "film": "自己倒数",
+      "tags": "Launches Countdowns Live events 发射 倒计时 现场直播",
+      "duration": "1:00",
+      "image": "/samples/opuscar-station-01.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s01-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/countdown/"
+      }
+    },
+    {
+      "id": "opuscar-city-symphony",
+      "name": "城市交响曲",
+      "en": "City Symphony",
+      "group": "剪辑纪实",
+      "film": "纽约的一天",
+      "tags": "City films Music montages Openers 城市片 音乐蒙太奇 开场片",
+      "duration": "0:52",
+      "image": "/samples/opuscar-station-01.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s01-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/city-symphony/"
+      }
+    },
+    {
+      "id": "opuscar-visual-investigation",
+      "name": "视觉调查",
+      "en": "Visual Investigation",
+      "group": "剪辑纪实",
+      "film": "兴登堡号：四分钟与三十二秒",
+      "tags": "Reconstructions Fact-checks Incident reports 事件复原 事实核查 事故报告",
+      "duration": "1:00",
+      "image": "/samples/opuscar-station-01.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s01-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/visual-investigation/"
+      }
+    },
+    {
+      "id": "opuscar-kino-montage",
+      "name": "构成主义蒙太奇",
+      "en": "Constructivist Montage",
+      "group": "剪辑纪实",
+      "film": "410 天",
+      "tags": "Industry histories Milestones Collective effort 行业史 里程碑 众人合力",
+      "duration": "1:00",
+      "image": "/samples/opuscar-station-01.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s01-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/kino-montage/"
+      }
+    },
+    {
+      "id": "opuscar-telestrator",
+      "name": "体育战术板",
+      "en": "Sports Telestrator",
+      "group": "剪辑纪实",
+      "film": "定格",
+      "tags": "Sports analysis Match recaps Coaching 体育分析 赛事回顾 战术教学",
+      "duration": "0:54",
+      "image": "/samples/opuscar-station-01.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s01-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/telestrator/"
+      }
+    },
+    {
+      "id": "opuscar-news-package",
+      "name": "电视新闻包装",
+      "en": "Broadcast News Package",
+      "group": "剪辑纪实",
+      "film": "本周 AI 四件事",
+      "tags": "News round-ups Bulletins Market updates 新闻汇总 新闻简报 市场快讯",
+      "duration": "0:54",
+      "image": "/samples/opuscar-station-01.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s01-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/news-package/"
+      }
+    },
+    {
+      "id": "opuscar-crayon-book",
+      "name": "蜡笔儿童绘本",
+      "en": "Crayon Picture Book",
+      "group": "绘画插画",
+      "film": "月亮睡不着",
+      "tags": "Picture books Bedtime stories Kids' learning 绘本 睡前故事 儿童启蒙",
+      "duration": "0:52",
+      "image": "/samples/opuscar-crayon-book.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/crayon-book-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/crayon-book/"
+      }
+    },
+    {
+      "id": "opuscar-watercolor",
+      "name": "水彩笔刷",
+      "en": "Watercolor Brush",
+      "group": "绘画插画",
+      "film": "跟着雨走",
+      "tags": "Nature documentary Travel Science explainers 自然纪录片 旅行 科普讲解",
+      "duration": "1:54",
+      "image": "/samples/opuscar-station-02.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s02-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/watercolor/"
+      }
+    },
+    {
+      "id": "opuscar-impasto",
+      "name": "油画厚涂",
+      "en": "Impasto Oil Painting",
+      "group": "绘画插画",
+      "film": "雨的颜色",
+      "tags": "Music videos Art & culture Emotional ads 音乐 MV 艺术文化 情感广告",
+      "duration": "0:40",
+      "image": "/samples/opuscar-impasto.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/impasto-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/impasto/"
+      }
+    },
+    {
+      "id": "opuscar-urban-sketch",
+      "name": "钢笔淡彩",
+      "en": "Urban Sketch · Pen & Wash",
+      "group": "绘画插画",
+      "film": "风去了哪里",
+      "tags": "City & travel Architecture Lifestyle brands 城市与旅行 建筑 生活方式品牌",
+      "duration": "0:33",
+      "image": "/samples/opuscar-urban-sketch.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/urban-sketch-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/urban-sketch/"
+      }
+    },
+    {
+      "id": "opuscar-colored-pencil",
+      "name": "彩铅科普插画",
+      "en": "Colored-Pencil Science Illustration",
+      "group": "绘画插画",
+      "film": "树的另一半",
+      "tags": "Natural-science cutaways Picture-book explainers Hidden structures and processes 自然科学剖面图 绘本式讲解 看不见的结构与过程",
+      "duration": "0:51",
+      "image": "/samples/opuscar-colored-pencil.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/colored-pencil-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/colored-pencil/"
+      }
+    },
+    {
+      "id": "opuscar-one-line",
+      "name": "一笔画",
+      "en": "One-line Drawing",
+      "group": "速写板书",
+      "film": "笔不离纸",
+      "tags": "Brand stories Life milestones Minimal ads 品牌故事 人生大事 极简广告",
+      "duration": "0:48",
+      "image": "/samples/opuscar-one-line.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/one-line-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/one-line/"
+      }
+    },
+    {
+      "id": "opuscar-whiteboard",
+      "name": "白板讲解",
+      "en": "Whiteboard Explainer",
+      "group": "速写板书",
+      "film": "口袋里的爱因斯坦",
+      "tags": "Explainers Online courses Science 讲解片 网课 科学",
+      "duration": "1:51",
+      "image": "/samples/opuscar-whiteboard.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/whiteboard-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/whiteboard/"
+      }
+    },
+    {
+      "id": "opuscar-chalkboard",
+      "name": "黑板粉笔",
+      "en": "Chalkboard",
+      "group": "速写板书",
+      "film": "汉字的故事",
+      "tags": "Word origins Myth-busting Lessons 字源 辟谣 课堂",
+      "duration": "0:49",
+      "image": "/samples/opuscar-chalkboard.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/chalkboard-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/chalkboard/"
+      }
+    },
+    {
+      "id": "opuscar-sketchnote",
+      "name": "视觉笔记",
+      "en": "Sketchnote",
+      "group": "速写板书",
+      "film": "蜜蜂怎样酿蜜",
+      "tags": "Lecture notes Science explainers One-page summaries 课堂笔记 科普讲解 一页纸总结",
+      "duration": "0:51",
+      "image": "/samples/opuscar-sketchnote.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/sketchnote-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/sketchnote/"
+      }
+    },
+    {
+      "id": "opuscar-stick-explainer",
+      "name": "火柴人讲解",
+      "en": "Stick-figure Explainer",
+      "group": "速写板书",
+      "film": "隔着几只手",
+      "tags": "Science explainers Networks & social ideas Data comparisons 科普讲解 网络与社会概念 数据对比",
+      "duration": "0:52",
+      "image": "/samples/opuscar-stick-explainer.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/stick-explainer-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/stick-explainer/"
+      }
+    },
+    {
+      "id": "opuscar-ipad-sketch",
+      "name": "平板速写讲解",
+      "en": "Tablet Sketch Explainer",
+      "group": "速写板书",
+      "film": "一杯咖啡，从一颗果子开始",
+      "tags": "Food & drink explainers Craft and how-to Lifestyle science 饮食科普 手作与教程 生活里的科学",
+      "duration": "0:51",
+      "image": "/samples/opuscar-ipad-sketch.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/ipad-sketch-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/ipad-sketch/"
+      }
+    },
+    {
+      "id": "opuscar-marker-paper",
+      "name": "马克笔白纸速写",
+      "en": "Marker on Paper",
+      "group": "速写板书",
+      "film": "你能看多远？",
+      "tags": "Worked problems Science explainers Lessons 例题演算 科普讲解 课堂",
+      "duration": "0:52",
+      "image": "/samples/opuscar-marker-paper.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/marker-paper-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/marker-paper/"
+      }
+    },
+    {
+      "id": "opuscar-ink-wash",
+      "name": "中国水墨",
+      "en": "Chinese Ink Wash",
+      "group": "传统工艺",
+      "film": "剑客与江",
+      "tags": "Wuxia Cultural brands Poetry 武侠 文化品牌 诗歌",
+      "duration": "0:48",
+      "image": "/samples/opuscar-ink-wash.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/ink-wash-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/ink-wash/"
+      }
+    },
+    {
+      "id": "opuscar-shadow-puppet",
+      "name": "皮影戏",
+      "en": "Shadow Puppetry",
+      "group": "传统工艺",
+      "film": "后羿射日",
+      "tags": "Myths & folklore Heritage Festivals 神话传说 文化遗产 节庆",
+      "duration": "0:54",
+      "image": "/samples/opuscar-shadow-puppet.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/shadow-puppet-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/shadow-puppet/"
+      }
+    },
+    {
+      "id": "opuscar-ukiyoe",
+      "name": "浮世绘",
+      "en": "Ukiyo-e",
+      "group": "传统工艺",
+      "film": "走向远山",
+      "tags": "Travel Japanese culture Poetry 旅行 日本文化 诗歌",
+      "duration": "0:44",
+      "image": "/samples/opuscar-ukiyoe.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/ukiyoe-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/ukiyoe/"
+      }
+    },
+    {
+      "id": "opuscar-papercut-red",
+      "name": "红色窗花剪纸",
+      "en": "Red Paper-cut",
+      "group": "传统工艺",
+      "film": "年兽进村",
+      "tags": "Lunar New Year Festive greetings Folk tales 春节 节日祝福 民间故事",
+      "duration": "0:49",
+      "image": "/samples/opuscar-papercut-red.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/papercut-red-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/papercut-red/"
+      }
+    },
+    {
+      "id": "opuscar-paper-lantern",
+      "name": "纸雕灯影",
+      "en": "Paper-cut Lightbox",
+      "group": "传统工艺",
+      "film": "末班夜车",
+      "tags": "Journeys and travel Farewells and anniversaries Places and their stories 旅程与旅行 告别与纪念日 地方和它的故事",
+      "duration": "0:51",
+      "image": "/samples/opuscar-paper-lantern.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/paper-lantern-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/paper-lantern/"
+      }
+    },
+    {
+      "id": "opuscar-stained-glass",
+      "name": "彩色玻璃窗",
+      "en": "Stained Glass",
+      "group": "传统工艺",
+      "film": "东窗之龙",
+      "tags": "Legends Heritage Holiday stories 传说 文化遗产 节日故事",
+      "duration": "0:57",
+      "image": "/samples/opuscar-stained-glass.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/stained-glass-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/stained-glass/"
+      }
+    },
+    {
+      "id": "opuscar-gilded-illumination",
+      "name": "金箔彩绘",
+      "en": "Gilded Illumination",
+      "group": "传统工艺",
+      "film": "借来的光",
+      "tags": "Fables and picture-book stories Holiday and festival shorts Brand and origin stories 寓言与绘本故事 节日短片 品牌与起源故事",
+      "duration": "0:47",
+      "image": "/samples/opuscar-gilded-illumination.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/gilded-illumination-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/gilded-illumination/"
+      }
+    },
+    {
+      "id": "opuscar-risograph",
+      "name": "孔版印刷",
+      "en": "Risograph Print",
+      "group": "印刷版画",
+      "film": "周日骑行",
+      "tags": "Indie brands Zines Lifestyle 独立品牌 独立小志 生活方式",
+      "duration": "0:40",
+      "image": "/samples/opuscar-risograph.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/risograph-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/risograph/"
+      }
+    },
+    {
+      "id": "opuscar-halftone-dossier",
+      "name": "网点档案",
+      "en": "Halftone Dossier",
+      "group": "印刷版画",
+      "film": "胖橘案卷",
+      "tags": "Humour Pet content Social shorts 幽默 萌宠 社媒短片",
+      "duration": "0:30",
+      "image": "/samples/opuscar-halftone-dossier.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/halftone-dossier-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/halftone-dossier/"
+      }
+    },
+    {
+      "id": "opuscar-woodcut",
+      "name": "木刻版画",
+      "en": "Woodcut Print",
+      "group": "印刷版画",
+      "film": "铸钟人",
+      "tags": "Folk tales Craft brands Book trailers 民间故事 手作品牌 新书预告",
+      "duration": "0:59",
+      "image": "/samples/opuscar-station-05.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s05-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/woodcut/"
+      }
+    },
+    {
+      "id": "opuscar-engraving",
+      "name": "铜版画",
+      "en": "Copperplate Engraving",
+      "group": "印刷版画",
+      "film": "蜜蜂，图版七",
+      "tags": "Museum labels Science explainers Brand heritage 展品说明 科普讲解 品牌传承",
+      "duration": "0:40",
+      "image": "/samples/opuscar-engraving.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/engraving-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/engraving/"
+      }
+    },
+    {
+      "id": "opuscar-silkscreen-poster",
+      "name": "丝印旅行海报",
+      "en": "Silkscreen Travel Poster",
+      "group": "印刷版画",
+      "film": "绕远路回家",
+      "tags": "Destination guides Tourism Event posters 目的地指南 旅游推广 活动海报",
+      "duration": "0:50",
+      "image": "/samples/opuscar-silkscreen-poster.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/silkscreen-poster-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/silkscreen-poster/"
+      }
+    },
+    {
+      "id": "opuscar-printed-long-take",
+      "name": "刮版画长镜头",
+      "en": "Scratchboard Long Take",
+      "group": "印刷版画",
+      "film": "三十三只",
+      "tags": "Journeys Wildlife Landscapes 旅程 野生动物 风景",
+      "duration": "1:00",
+      "image": "/samples/opuscar-printed-long-take.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/printed-long-take-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/printed-long-take/"
+      }
+    },
+    {
+      "id": "opuscar-pop-art",
+      "name": "波普艺术",
+      "en": "Pop Art",
+      "group": "印刷版画",
+      "film": "同一根香蕉",
+      "tags": "Everyday-object explainers Brand and product posters Small data stories 日常物件科普 品牌与产品海报 小数据故事",
+      "duration": "0:52",
+      "image": "/samples/opuscar-pop-art.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/pop-art-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/pop-art/"
+      }
+    },
+    {
+      "id": "opuscar-vintage-collage",
+      "name": "复古版画拼贴",
+      "en": "Vintage Engraving Collage",
+      "group": "印刷版画",
+      "film": "倒置的珍妮",
+      "tags": "The history of an object Magazine-style explainers on ideas and society Archive and collecting stories 一件东西的历史 杂志风的思想与社会讲解 档案与收藏故事",
+      "duration": "0:52",
+      "image": "/samples/opuscar-station-05.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s05-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/vintage-collage/"
+      }
+    },
+    {
+      "id": "opuscar-swiss-motion",
+      "name": "瑞士动态排版",
+      "en": "Swiss Motion Graphics",
+      "group": "平面排版",
+      "film": "海报的五条规则",
+      "tags": "Brand identity Events Design education 品牌形象 活动 设计教学",
+      "duration": "0:44",
+      "image": "/samples/opuscar-swiss-motion.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/swiss-motion-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/swiss-motion/"
+      }
+    },
+    {
+      "id": "opuscar-spy-titles",
+      "name": "60s 间谍片头",
+      "en": "60s Spy Title Sequence",
+      "group": "平面排版",
+      "film": "天鹅绒密码",
+      "tags": "Title sequences Event openers Trailers 片头 活动开场 预告片",
+      "duration": "0:44",
+      "image": "/samples/opuscar-spy-titles.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/spy-titles-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/spy-titles/"
+      }
+    },
+    {
+      "id": "opuscar-art-deco",
+      "name": "装饰艺术",
+      "en": "Art Deco",
+      "group": "平面排版",
+      "film": "星光饭店的午夜",
+      "tags": "Luxury & hospitality Galas Invitations 奢侈品与酒店 晚会 邀请函",
+      "duration": "0:58",
+      "image": "/samples/opuscar-art-deco.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/art-deco-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/art-deco/"
+      }
+    },
+    {
+      "id": "opuscar-pictogram-motion",
+      "name": "象形运动图形",
+      "en": "Pictogram Motion",
+      "group": "平面排版",
+      "film": "被落下的伞",
+      "tags": "Public services and city stories Brand and event identity films Explainers told through signs and objects 公共服务与城市故事 品牌与活动形象片 用标志和物件讲解",
+      "duration": "0:50",
+      "image": "/samples/opuscar-pictogram-motion.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/pictogram-motion-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/pictogram-motion/"
+      }
+    },
+    {
+      "id": "opuscar-bauhaus-shapes",
+      "name": "包豪斯几何",
+      "en": "Bauhaus Shapes",
+      "group": "平面排版",
+      "film": "复利是怎么滚起来的",
+      "tags": "Finance and economics explainers Mechanisms and principles Titles and chapter cards 金融与经济科普 机制与原理 片头与章节卡",
+      "duration": "0:52",
+      "image": "/samples/opuscar-bauhaus-shapes.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/bauhaus-shapes-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/bauhaus-shapes/"
+      }
+    },
+    {
+      "id": "opuscar-flat-space-explainer",
+      "name": "扁平尺度漫游",
+      "en": "Scale Zoom Explainer",
+      "group": "平面排版",
+      "film": "一路往下缩",
+      "tags": "Science explainers Scale and size Classroom 科普讲解 尺度与大小 课堂",
+      "duration": "0:52",
+      "image": "/samples/opuscar-flat-space-explainer.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/flat-space-explainer-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/flat-space-explainer/"
+      }
+    },
+    {
+      "id": "opuscar-text-flash-cuts",
+      "name": "文字闪切",
+      "en": "Text Flash Cuts",
+      "group": "平面排版",
+      "film": "身后",
+      "tags": "Suspense & drama trailers Title sequences Manifesto films 悬疑与剧情预告 片头 宣言片",
+      "duration": "0:46",
+      "image": "/samples/opuscar-text-flash-cuts.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/text-flash-cuts-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/text-flash-cuts/"
+      }
+    },
+    {
+      "id": "opuscar-silhouette-rhythm",
+      "name": "剪影律动",
+      "en": "Silhouette Rhythm",
+      "group": "平面排版",
+      "film": "慢半拍",
+      "tags": "Music videos Sports and team films Nature and festival openers 音乐 MV 体育与团队片 自然与节庆开场",
+      "duration": "0:49",
+      "image": "/samples/opuscar-silhouette-rhythm.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/silhouette-rhythm-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/silhouette-rhythm/"
+      }
+    },
+    {
+      "id": "opuscar-blueprint",
+      "name": "工程蓝图",
+      "en": "Blueprint",
+      "group": "线稿图解",
+      "film": "专利申请中：接云机",
+      "tags": "Engineering Hardware launches Tech explainers 工程 硬件发布 技术讲解",
+      "duration": "0:47",
+      "image": "/samples/opuscar-blueprint.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/blueprint-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/blueprint/"
+      }
+    },
+    {
+      "id": "opuscar-iso-infographic",
+      "name": "等距信息图",
+      "en": "Isometric Infographic",
+      "group": "线稿图解",
+      "film": "从豆到杯",
+      "tags": "Process explainers Supply chains Annual reports 流程讲解 供应链 年报",
+      "duration": "0:59",
+      "image": "/samples/opuscar-iso-infographic.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/iso-infographic-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/iso-infographic/"
+      }
+    },
+    {
+      "id": "opuscar-teardown",
+      "name": "产品拆解",
+      "en": "Exploded Teardown",
+      "group": "线稿图解",
+      "film": "二十一键",
+      "tags": "Hardware launches Product pages Spec explainers 硬件发布 产品页 参数讲解",
+      "duration": "0:39",
+      "image": "/samples/opuscar-teardown.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/teardown-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/teardown/"
+      }
+    },
+    {
+      "id": "opuscar-hardcore-info",
+      "name": "线稿剖面图解",
+      "en": "Line-Art Cutaway",
+      "group": "线稿图解",
+      "film": "你手机的天线在哪",
+      "tags": "Hardware explainers Product engineering Science education 硬件科普 产品工程 科学教育",
+      "duration": "0:52",
+      "image": "/samples/opuscar-hardcore-info.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/hardcore-info-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/hardcore-info/"
+      }
+    },
+    {
+      "id": "opuscar-precise-mechanism",
+      "name": "分色机械图解",
+      "en": "Color-Coded Mechanism",
+      "group": "线稿图解",
+      "film": "三套系统走时",
+      "tags": "How machines work Product and engineering explainers Science teaching 机器怎么运转 产品与工程讲解 科学教学",
+      "duration": "0:52",
+      "image": "/samples/opuscar-precise-mechanism.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/precise-mechanism-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/precise-mechanism/"
+      }
+    },
+    {
+      "id": "opuscar-instruction-manual",
+      "name": "说明书插画",
+      "en": "Instruction Manual Art",
+      "group": "线稿图解",
+      "film": "第十步",
+      "tags": "Assembly and set-up guides Safety instructions Product onboarding 组装与安装指南 安全须知 产品上手引导",
+      "duration": "0:51",
+      "image": "/samples/opuscar-instruction-manual.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/instruction-manual-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/instruction-manual/"
+      }
+    },
+    {
+      "id": "opuscar-pen-plotter",
+      "name": "笔式绘图仪",
+      "en": "Pen Plotter",
+      "group": "线稿图解",
+      "film": "8848.86",
+      "tags": "Maps and terrain Measurements and records Generative and data drawings 地图与地形 测量与纪录 生成与数据绘图",
+      "duration": "0:50",
+      "image": "/samples/opuscar-station-07.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s07-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/pen-plotter/"
+      }
+    },
+    {
+      "id": "opuscar-assembly-line-diagram",
+      "name": "流水线图解",
+      "en": "Assembly-Line Diagram",
+      "group": "线稿图解",
+      "film": "拆解流水线",
+      "tags": "How a process works Biology and medicine Supply chains and pipelines 讲清一个流程 生物与医学 供应链与流水线",
+      "duration": "0:55",
+      "image": "/samples/opuscar-assembly-line-diagram.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/assembly-line-diagram-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/assembly-line-diagram/"
+      }
+    },
+    {
+      "id": "opuscar-rubber-hose",
+      "name": "1930s 橡皮管卡通",
+      "en": "1930s Rubber Hose Cartoon",
+      "group": "卡通动画",
+      "film": "咖啡杯追方糖",
+      "tags": "Food & drink Retro ads Kids 餐饮 复古广告 儿童",
+      "duration": "0:50",
+      "image": "/samples/opuscar-rubber-hose.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/rubber-hose-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/rubber-hose/"
+      }
+    },
+    {
+      "id": "opuscar-cel-anime-80s",
+      "name": "80 年代赛璐璐动画",
+      "en": "80s Cel Anime",
+      "group": "卡通动画",
+      "film": "城市灯火，1987",
+      "tags": "Music videos Game trailers Nostalgia 音乐 MV 游戏预告 怀旧",
+      "duration": "0:59",
+      "image": "/samples/opuscar-cel-anime-80s.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/cel-anime-80s-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/cel-anime-80s/"
+      }
+    },
+    {
+      "id": "opuscar-scifi-toon",
+      "name": "科幻情景喜剧卡通",
+      "en": "Sci-Fi Sitcom Toon",
+      "group": "卡通动画",
+      "film": "跑腿买咖啡",
+      "tags": "Comedy Tech brands Social shorts 喜剧 科技品牌 社媒短片",
+      "duration": "0:58",
+      "image": "/samples/opuscar-scifi-toon.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/scifi-toon-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/scifi-toon/"
+      }
+    },
+    {
+      "id": "opuscar-midcentury-toon",
+      "name": "50s 扁平卡通",
+      "en": "Mid-century Cartoon",
+      "group": "卡通动画",
+      "film": "认识一下 Pip",
+      "tags": "Set-up guides Help centres How-to 安装指南 帮助中心 操作教程",
+      "duration": "0:40",
+      "image": "/samples/opuscar-midcentury-toon.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/midcentury-toon-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/midcentury-toon/"
+      }
+    },
+    {
+      "id": "opuscar-comic-history",
+      "name": "搞笑历史卡通",
+      "en": "Comic History Cartoon",
+      "group": "卡通动画",
+      "film": "一块纸",
+      "tags": "Territorial changes in history Light explainers on geopolitics Market share and turf-war stories 历史上的版图变化 轻松讲地缘政治 市场份额与地盘之争",
+      "duration": "0:51",
+      "image": "/samples/opuscar-station-08.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s08-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/comic-history/"
+      }
+    },
+    {
+      "id": "opuscar-manga-panels",
+      "name": "黑白漫画分格",
+      "en": "Manga Panels",
+      "group": "卡通动画",
+      "film": "KOMA ONE · 一秒三十格",
+      "tags": "Music videos Product launches Anime openings 音乐 MV 产品发布 动画片头",
+      "duration": "0:48",
+      "image": "/samples/opuscar-manga-panels.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/manga-panels-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/manga-panels/"
+      }
+    },
+    {
+      "id": "opuscar-pixel-rpg",
+      "name": "16-bit 像素 RPG",
+      "en": "16-bit Pixel RPG",
+      "group": "电子游戏",
+      "film": "最后的存档点",
+      "tags": "Game trailers Recaps Nostalgia 游戏预告 回顾 怀旧",
+      "duration": "0:55",
+      "image": "/samples/opuscar-pixel-rpg.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/pixel-rpg-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/pixel-rpg/"
+      }
+    },
+    {
+      "id": "opuscar-hd-2d",
+      "name": "2.5D 像素",
+      "en": "2.5D Pixel Art",
+      "group": "电子游戏",
+      "film": "守灯人",
+      "tags": "Game trailers Fantasy Story films 游戏预告 奇幻 故事片",
+      "duration": "1:17",
+      "image": "/samples/opuscar-hd-2d.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/hd-2d-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/hd-2d/"
+      }
+    },
+    {
+      "id": "opuscar-microgame",
+      "name": "微游戏快闪",
+      "en": "Microgame Frenzy",
+      "group": "电子游戏",
+      "film": "五秒宇航员",
+      "tags": "Game trailers Onboarding Social shorts 游戏预告 新手引导 社媒短片",
+      "duration": "1:00",
+      "image": "/samples/opuscar-microgame.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/microgame-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/microgame/"
+      }
+    },
+    {
+      "id": "opuscar-game-show",
+      "name": "节奏综艺",
+      "en": "Rhythm Game Show",
+      "group": "电子游戏",
+      "film": "AI 进化节拍",
+      "tags": "Tech timelines Year in review Variety shows 科技编年 年度回顾 综艺",
+      "duration": "2:29",
+      "image": "/samples/opuscar-game-show.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/game-show-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/game-show/"
+      }
+    },
+    {
+      "id": "opuscar-ascii-crt",
+      "name": "CRT 字符终端",
+      "en": "CRT ASCII Terminal",
+      "group": "胶片录像",
+      "film": "静海日志",
+      "tags": "Developer tools Sci-fi Tech brands 开发者工具 科幻 科技品牌",
+      "duration": "1:00",
+      "image": "/samples/opuscar-ascii-crt.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/ascii-crt-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/ascii-crt/"
+      }
+    },
+    {
+      "id": "opuscar-silent-film",
+      "name": "1920s 默片",
+      "en": "1920s Silent Film",
+      "group": "胶片录像",
+      "film": "逃跑的面包",
+      "tags": "Comedy Retro brands Silent storytelling 喜剧 复古品牌 无声叙事",
+      "duration": "0:54",
+      "image": "/samples/opuscar-silent-film.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/silent-film-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/silent-film/"
+      }
+    },
+    {
+      "id": "opuscar-backrooms",
+      "name": "后室录像带",
+      "en": "Liminal Found Footage",
+      "group": "胶片录像",
+      "film": "夜班入职培训",
+      "tags": "Horror Mystery & ARG Game teasers 恐怖 悬疑与 ARG 游戏先导片",
+      "duration": "1:00",
+      "image": "/samples/opuscar-backrooms.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/backrooms-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/backrooms/"
+      }
+    },
+    {
+      "id": "opuscar-scratch-film",
+      "name": "胶片直刻",
+      "en": "Scratch Film",
+      "group": "胶片录像",
+      "film": "夜里往上游",
+      "tags": "Things that happen in the dark One mark to a whole system Small adventures told in light and shadow 黑暗里发生的事 从一笔到整个系统 光影里的小冒险",
+      "duration": "0:52",
+      "image": "/samples/opuscar-scratch-film.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/scratch-film-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/scratch-film/"
+      }
+    },
+    {
+      "id": "opuscar-double-exposure",
+      "name": "双重曝光",
+      "en": "Double Exposure",
+      "group": "胶片录像",
+      "film": "山海",
+      "tags": "Brand and city films Documentary and series openings Music video intros 品牌片与城市片 纪录片与剧集片头 MV 开场",
+      "duration": "0:51",
+      "image": "/samples/opuscar-station-10.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s10-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/double-exposure/"
+      }
+    },
+    {
+      "id": "opuscar-dark-keynote",
+      "name": "暗色科技发布",
+      "en": "Dark Tech Keynote",
+      "group": "屏幕界面",
+      "film": "思考的空间",
+      "tags": "Product launches SaaS Keynotes 产品发布 SaaS 发布会",
+      "duration": "0:42",
+      "image": "/samples/opuscar-dark-keynote.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/dark-keynote-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/dark-keynote/"
+      }
+    },
+    {
+      "id": "opuscar-living-screencast",
+      "name": "像素小人录屏",
+      "en": "Mascot Screencast",
+      "group": "屏幕界面",
+      "film": "Clawd 搬进来了",
+      "tags": "Product tutorials Feature launches Onboarding 产品教程 新功能发布 新手引导",
+      "duration": "0:59",
+      "image": "/samples/opuscar-station-11.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s11-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/living-screencast/"
+      }
+    },
+    {
+      "id": "opuscar-hologram-hud",
+      "name": "科幻全息界面",
+      "en": "Sci-fi Hologram HUD",
+      "group": "屏幕界面",
+      "film": "Volt 规格扫描",
+      "tags": "Spec walkthroughs Launch videos Trade shows 规格导览 发布短片 展会",
+      "duration": "0:39",
+      "image": "/samples/opuscar-hologram-hud.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/hologram-hud-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/hologram-hud/"
+      }
+    },
+    {
+      "id": "opuscar-desktop-flythrough",
+      "name": "桌面卡片穿梭",
+      "en": "Tabletop App Flythrough",
+      "group": "屏幕界面",
+      "film": "叮之前",
+      "tags": "App explainers Workflows Products 应用讲解 工作流程 产品",
+      "duration": "1:00",
+      "image": "/samples/opuscar-desktop-flythrough.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/desktop-flythrough-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/desktop-flythrough/"
+      }
+    },
+    {
+      "id": "opuscar-spreadsheet",
+      "name": "表格动画",
+      "en": "Spreadsheet Film",
+      "group": "屏幕界面",
+      "film": "藏起来的那一列",
+      "tags": "Data literacy Finance & costs Analytics explainers 数据素养 财务与成本 数据分析讲解",
+      "duration": "0:52",
+      "image": "/samples/opuscar-spreadsheet.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/spreadsheet-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/spreadsheet/"
+      }
+    },
+    {
+      "id": "opuscar-one-bit-dither",
+      "name": "1-bit 点阵",
+      "en": "1-bit Dither",
+      "group": "屏幕界面",
+      "film": "月亮的传真",
+      "tags": "History told through a chain of media Printing, scanning and signals Night scenes and space 用一串媒介讲历史 印刷、扫描与信号 夜景与太空",
+      "duration": "0:50",
+      "image": "/samples/opuscar-one-bit-dither.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/one-bit-dither-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/one-bit-dither/"
+      }
+    },
+    {
+      "id": "opuscar-circuit-board",
+      "name": "电路板",
+      "en": "Circuit Board",
+      "group": "发光线条",
+      "film": "七毫秒",
+      "tags": "Energy Supply chains Devices 能源 供应链 电子设备",
+      "duration": "1:00",
+      "image": "/samples/opuscar-circuit-board.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/circuit-board-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/circuit-board/"
+      }
+    },
+    {
+      "id": "opuscar-firefly-pointillism",
+      "name": "萤火光点",
+      "en": "Firefly Pointillism",
+      "group": "发光线条",
+      "film": "你亮，我就亮",
+      "tags": "Picture-book stories Many becoming one Night and nature lyric 绘本故事 众人汇成一个 夜色与自然抒情",
+      "duration": "0:51",
+      "image": "/samples/opuscar-firefly-pointillism.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/firefly-pointillism-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/firefly-pointillism/"
+      }
+    },
+    {
+      "id": "opuscar-flow-field",
+      "name": "流场风线",
+      "en": "Flow-field Wind Lines",
+      "group": "发光线条",
+      "film": "摩羯过琼州",
+      "tags": "Storms, monsoons and other weather Ocean currents and river floods Any flow measured against a threshold 台风、季风等天气 洋流与河流洪水 任何对照阈值的流动",
+      "duration": "0:52",
+      "image": "/samples/opuscar-station-12.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s12-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/flow-field/"
+      }
+    },
+    {
+      "id": "opuscar-oscilloscope-math",
+      "name": "示波器数学",
+      "en": "Oscilloscope Math",
+      "group": "发光线条",
+      "film": "吉布斯现象",
+      "tags": "Maths and physics lessons Signals and electronics Science explainers 数学与物理课 信号与电子 科普讲解",
+      "duration": "0:51",
+      "image": "/samples/opuscar-oscilloscope-math.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/oscilloscope-math-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/oscilloscope-math/"
+      }
+    },
+    {
+      "id": "opuscar-neon-tubes",
+      "name": "霓虹灯管",
+      "en": "Neon Tubes",
+      "group": "发光线条",
+      "film": "夜宵",
+      "tags": "Shop openings and mascot stories Nightlife and city-pop music videos City and festival night idents 开业与吉祥物故事 夜生活与城市流行 MV 城市与节庆夜景片头",
+      "duration": "0:48",
+      "image": "/samples/opuscar-neon-tubes.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/neon-tubes-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/neon-tubes/"
+      }
+    },
+    {
+      "id": "opuscar-brick-toy",
+      "name": "积木玩具",
+      "en": "Brick Toy",
+      "group": "立体微缩",
+      "film": "零件拼出的火箭",
+      "tags": "Toys & kids Product builds Space 玩具与儿童 产品组装 太空",
+      "duration": "0:54",
+      "image": "/samples/opuscar-station-13.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s13-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/brick-toy/"
+      }
+    },
+    {
+      "id": "opuscar-paper-popup",
+      "name": "纸片立体书",
+      "en": "Paper Pop-up Book",
+      "group": "立体微缩",
+      "film": "小精灵冒险记",
+      "tags": "Children's books Game trailers Story films 童书 游戏预告 故事片",
+      "duration": "2:13",
+      "image": "/samples/opuscar-station-13.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s13-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/paper-popup/"
+      }
+    },
+    {
+      "id": "opuscar-tilt-shift",
+      "name": "移轴微缩",
+      "en": "Tilt-Shift Miniature",
+      "group": "立体微缩",
+      "film": "玩具城早高峰",
+      "tags": "City promos Real estate Transport 城市宣传 房地产 交通",
+      "duration": "0:38",
+      "image": "/samples/opuscar-tilt-shift.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/tilt-shift-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/tilt-shift/"
+      }
+    },
+    {
+      "id": "opuscar-lowpoly-island",
+      "name": "低多边形等距",
+      "en": "Low-poly Isometric Island",
+      "group": "立体微缩",
+      "film": "长出来的岛",
+      "tags": "Game trailers World building Calm content 游戏预告 世界观 治愈系",
+      "duration": "0:53",
+      "image": "/samples/opuscar-lowpoly-island.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/lowpoly-island-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/lowpoly-island/"
+      }
+    },
+    {
+      "id": "opuscar-glass-product",
+      "name": "玻璃质感产品",
+      "en": "Glass Product Render",
+      "group": "立体微缩",
+      "film": "Aura：听见光",
+      "tags": "Product launches Consumer tech Beauty 产品发布 消费电子 美妆",
+      "duration": "0:32",
+      "image": "/samples/opuscar-glass-product.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/glass-product-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/glass-product/"
+      }
+    },
+    {
+      "id": "opuscar-memphis-diorama",
+      "name": "孟菲斯微缩景观",
+      "en": "Memphis Diorama",
+      "group": "立体微缩",
+      "film": "柚子城的四季",
+      "tags": "Web heroes Ambient loops Seasons 网页头图 氛围循环 四季",
+      "duration": "0:45",
+      "image": "/samples/opuscar-memphis-diorama.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/memphis-diorama-480.webp",
+      "stationCover": false,
+      "artist": "EianLu",
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/memphis-diorama/"
+      }
+    },
+    {
+      "id": "opuscar-isometric-picture-book",
+      "name": "等距小人场景",
+      "en": "Isometric People Scene",
+      "group": "立体微缩",
+      "film": "七十二个座位",
+      "tags": "Everyday rules Queues Comparisons 日常规则 排队 对比",
+      "duration": "1:00",
+      "image": "/samples/opuscar-isometric-picture-book.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/isometric-picture-book-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/isometric-picture-book/"
+      }
+    },
+    {
+      "id": "opuscar-crayon-world",
+      "name": "蜡笔立体世界",
+      "en": "Crayon World 3D",
+      "group": "立体微缩",
+      "film": "蝴蝶",
+      "tags": "Short stories Tributes Journeys 短篇故事 致敬片 旅程",
+      "duration": "1:05",
+      "image": "/samples/opuscar-crayon-world.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/crayon-world-480.webp",
+      "stationCover": false,
+      "artist": "2nd1st",
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/crayon-world/"
+      }
+    },
+    {
+      "id": "opuscar-satellite-briefing",
+      "name": "卫星简报",
+      "en": "Satellite Briefing",
+      "group": "仪器实证",
+      "film": "地图上还写着海",
+      "tags": "Climate News explainers Geography 气候 新闻解读 地理",
+      "duration": "0:38",
+      "image": "/samples/opuscar-station-14.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s14-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/satellite-briefing/"
+      }
+    },
+    {
+      "id": "opuscar-briefing-board",
+      "name": "工程简报板",
+      "en": "Engineering Briefing Board",
+      "group": "仪器实证",
+      "film": "船说了算",
+      "tags": "Engineering Option comparisons Briefings 工程 方案比选 简报",
+      "duration": "0:40",
+      "image": "/samples/opuscar-station-14.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s14-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/briefing-board/"
+      }
+    },
+    {
+      "id": "opuscar-lidar-survey",
+      "name": "点云测绘",
+      "en": "LiDAR Survey",
+      "group": "仪器实证",
+      "film": "林下的田",
+      "tags": "Heritage Environment Site surveys 文化遗产 环境 场地勘测",
+      "duration": "0:40",
+      "image": "/samples/opuscar-station-14.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s14-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/lidar-survey/"
+      }
+    },
+    {
+      "id": "opuscar-microscope",
+      "name": "显微镜下",
+      "en": "Under the Microscope",
+      "group": "仪器实证",
+      "film": "量出来的蓝",
+      "tags": "Biomedicine Materials science Skincare science 生物医学 材料科学 护肤科学",
+      "duration": "0:40",
+      "image": "/samples/opuscar-station-14.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s14-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/microscope/"
+      }
+    },
+    {
+      "id": "opuscar-archive-lighttable",
+      "name": "档案看片台",
+      "en": "Archive Light Table",
+      "group": "仪器实证",
+      "film": "差两秒",
+      "tags": "Brand history Archive stories Museums 品牌历史 档案故事 博物馆",
+      "duration": "0:40",
+      "image": "/samples/opuscar-station-14.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s14-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/archive-lighttable/"
+      }
+    },
+    {
+      "id": "opuscar-security-xray",
+      "name": "安检 X 光",
+      "en": "Security X-ray",
+      "group": "仪器实证",
+      "film": "安检口的夜班",
+      "tags": "Airport and customs screening Parcel and cargo inspection Product internals 机场与海关安检 包裹与货物查验 产品内部结构",
+      "duration": "0:52",
+      "image": "/samples/opuscar-security-xray.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/security-xray-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/security-xray/"
+      }
+    },
+    {
+      "id": "opuscar-dark-documentary",
+      "name": "雷达扫描纪录片",
+      "en": "Radar Sweep Documentary",
+      "group": "仪器实证",
+      "film": "狂风里接住登月直播",
+      "tags": "History of science and engineering Archaeology, sites and reconstructions Astronomy, deep space and survey 科学与工程史 考古、遗址与复原 天文、深空与巡天",
+      "duration": "0:52",
+      "image": "/samples/opuscar-dark-documentary.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/dark-documentary-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/dark-documentary/"
+      }
+    },
+    {
+      "id": "opuscar-thermal-camera",
+      "name": "热成像",
+      "en": "Thermal Camera",
+      "group": "仪器实证",
+      "film": "冬夜，一栋楼的体温",
+      "tags": "Building and energy inspection Wildlife at night Machines and electrics 建筑与能耗检测 夜间野生动物 机器与电气",
+      "duration": "0:49",
+      "image": "/samples/opuscar-thermal-camera.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/thermal-camera-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/thermal-camera/"
+      }
+    },
+    {
+      "id": "opuscar-dataviz",
+      "name": "数据叙事",
+      "en": "Data Storytelling",
+      "group": "数据地图",
+      "film": "一百个夏天",
+      "tags": "Data journalism Reports Climate & science 数据新闻 报告 气候与科学",
+      "duration": "0:50",
+      "image": "/samples/opuscar-station-15.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s15-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/dataviz/"
+      }
+    },
+    {
+      "id": "opuscar-white-model",
+      "name": "白模投影",
+      "en": "Projection-Mapped Model",
+      "group": "数据地图",
+      "film": "被炸平的城市怎样长回来",
+      "tags": "Urban planning Exhibitions City data 城市规划 展览 城市数据",
+      "duration": "0:40",
+      "image": "/samples/opuscar-station-15.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s15-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/white-model/"
+      }
+    },
+    {
+      "id": "opuscar-data-physical",
+      "name": "数据实物化",
+      "en": "Data Physicalization",
+      "group": "数据地图",
+      "film": "两条螺旋",
+      "tags": "Annual reports Investor decks Energy data 年报 投资人路演 能源数据",
+      "duration": "0:39",
+      "image": "/samples/opuscar-station-15.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s15-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/data-physical/"
+      }
+    },
+    {
+      "id": "opuscar-transit-map",
+      "name": "地铁线路图",
+      "en": "Transit Map",
+      "group": "数据地图",
+      "film": "6 公里",
+      "tags": "Transport Growth over time Networks 交通 发展历程 网络结构",
+      "duration": "0:47",
+      "image": "/samples/opuscar-transit-map.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/transit-map-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/transit-map/"
+      }
+    },
+    {
+      "id": "opuscar-map-explainer",
+      "name": "立体地图解说",
+      "en": "3D Map Explainer",
+      "group": "数据地图",
+      "film": "霍尔木兹海峡",
+      "tags": "News and geopolitics Energy, trade and shipping Rivers, borders and terrain 新闻与地缘政治 能源、贸易与航运 河流、边界与地形",
+      "duration": "0:52",
+      "image": "/samples/opuscar-station-15.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/still/s15-1280.webp",
+      "stationCover": true,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/map-explainer/"
+      }
+    },
+    {
+      "id": "opuscar-pip-simulation",
+      "name": "小人模拟实验",
+      "en": "Blob Simulation",
+      "group": "数据地图",
+      "film": "跑得快，就更好吗？",
+      "tags": "Evolution and natural selection Game theory and agent-based models Epidemics, queues and markets 进化与自然选择 博弈论与个体模拟 疫情、排队与市场",
+      "duration": "0:52",
+      "image": "/samples/opuscar-pip-simulation.webp",
+      "imageSource": "https://lemomo-ai.github.io/lemo-opuscar/media/thumb/pip-simulation-480.webp",
+      "stationCover": false,
+      "source": {
+        "label": "Lemo-Opuscar 官方页",
+        "url": "https://lemomo-ai.github.io/lemo-opuscar/zh/styles/pip-simulation/"
+      }
+    }
+  ]
+}

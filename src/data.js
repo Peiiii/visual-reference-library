@@ -1,13 +1,18 @@
 import styleEntries from '../data/styles.json' with { type: 'json' };
+import opuscar from '../data/opuscar.json' with { type: 'json' };
 import atlasEntries from '../data/atlas.json' with { type: 'json' };
-import motionCatalog from '../data/motion-prompt.json' with { type: 'json' };
 import whiteEntries from '../data/white-models.json' with { type: 'json' };
 
 export const styles = styleEntries;
+export const opuscarStyles = opuscar.entries;
+export const opuscarBase = opuscar.source;
 export const effects = atlasEntries;
 export const whiteModels = whiteEntries;
-export const motions = motionCatalog.elements;
-export const packs = motionCatalog.packs;
+export let motionCatalog;
+export async function loadMotionCatalog() {
+  motionCatalog ??= (await import('../data/motion-prompt.json', { with: { type: 'json' } })).default;
+  return motionCatalog;
+}
 export const atlasBase = 'https://atlas.letz.ai';
 export const motionBase = 'https://showheyohtaki.github.io/motion-prompt/';
 export const douyinSource = 'https://www.douyin.com/video/7708581319843794191';
@@ -21,13 +26,15 @@ export const atlasGroup = item => item.kind === 'historical'
   ? item.group : (String(item.group).padStart(2, '0') + ' · ' + atlasChapters[item.group - 1]);
 
 export const zh = localization => localization?.['zh-Hans'] || localization?.en || '';
-export const packName = id => zh(packs.find(item => item.pack === id)?.title);
-export const categoryName = item => zh(packs.find(pack => pack.pack === item.pack)
+export const packName = id => zh(motionCatalog.packs.find(item => item.pack === id)?.title);
+export const categoryName = item => zh(motionCatalog.packs.find(pack => pack.pack === item.pack)
   ?.categories.find(category => category.slug === item.category)) || item.category;
 
 export function motionTheme(item) {
   if (item.pack.startsWith('camera')) return '运镜与转场';
   if (item.pack === 'photo') return '光影与摄影';
+  if (item.pack === 'artstyle') return '图像画风';
+  if (item.pack === 'diagram') return '图解图表';
   if (item.pack.startsWith('motion')) return '动态图形';
   if (item.pack === 'ui') return 'UI 组件';
   return '落地页与网页';
@@ -51,6 +58,14 @@ export function stylePrompt(item) {
   ].join('\n');
 }
 
+export function opuscarPrompt(item) {
+  return [
+    '风格参考｜' + item.name + ' · ' + item.en,
+    '参考样片｜《' + item.film + '》 · ' + item.source.url,
+    '根据我的题材和已有素材，分析参考片的构图、色彩、材质和剪辑节奏。用我自己的主体和文案做一个 16:9 样镜，并给出可复用的风格配置。',
+  ].join('\n');
+}
+
 export function motionPrompt(item) {
   return ['Motion Prompt #' + item.id + ' · ' + zh(item.name) + ' · ' + item.name.en, zh(item.ask)].join('\n');
 }
@@ -58,8 +73,8 @@ export function motionPrompt(item) {
 export function whitePrompt(item, format, skin) {
   return ['白模动作｜' + item.name + ' [' + item.id + ']',
     '时长｜' + item.duration + ' 秒　画幅｜' + format + '　材质｜' + skin,
-    '应用｜' + item.use, '时序｜' + item.prompt,
-    '复用｜锁定关键位置、时间与节奏，再按独立的风格配置调整配色、字体和质感。'].join('\n');
+    '应用｜' + item.use, item.example && '口播示例｜' + item.example, '时序｜' + item.prompt,
+    '复用｜锁定关键位置、时间与节奏，再按独立的风格配置调整配色、字体和质感。'].filter(Boolean).join('\n');
 }
 
 export function pairStyles(selected) {

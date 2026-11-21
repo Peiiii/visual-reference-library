@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
+    "audit:sources": "node scripts/audit_sources.mjs",
     "check": "node --test",
     "build": "npm run check && vite build",
     "preview": "vite preview --host 127.0.0.1"

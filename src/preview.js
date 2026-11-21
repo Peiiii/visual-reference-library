@@ -1,3 +1,5 @@
+import { drawWhiteTechnique } from './white-animations.js';
+
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 const packLoads = new Map();
 
@@ -23,7 +25,11 @@ function loadPack(name) {
       }));
     }
     const pending = packLoads.get('runtime').then(() => loadScript(name))
-      .then(() => window.MotionPrompt.packs[name])
+      .then(async () => {
+        const engine = window.MotionPrompt.packs[name];
+        await engine.ready;
+        return engine;
+      })
       .catch(error => {
         packLoads.delete(name);
         throw error;
@@ -39,6 +45,13 @@ export class PreviewPlayer {
   #next = 0;
   #paused = reduce.matches;
   #last = 0;
+  #preload = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      this.#preload.unobserve(entry.target);
+      this.#frames.get(entry.target)?.load?.();
+    }
+  }, { rootMargin: '0px 0px 1050px' });
   #observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
@@ -75,6 +88,7 @@ export class PreviewPlayer {
     for (const canvas of this.#frames.keys()) {
       if (root.contains(canvas) || !canvas.isConnected) {
         this.#observer.unobserve(canvas);
+        this.#preload.unobserve(canvas);
         this.#visible.delete(canvas);
         this.#frames.delete(canvas);
       }
@@ -94,7 +108,7 @@ export class PreviewPlayer {
         canvas.width = engine.width;
         canvas.height = engine.height;
         frame.draw = time => cell(ctx, engine.width, engine.height, time);
-        frame.draw(0.9);
+        frame.draw(item.cycle * 0.4);
         canvas.dataset.ready = 'true';
         this.#queue();
       } catch {
@@ -108,14 +122,15 @@ export class PreviewPlayer {
       }
     } };
     this.#frames.set(canvas, frame);
+    this.#preload.observe(canvas);
     this.#observer.observe(canvas);
   };
 
   mountWhite = (canvas, item, skin) => {
     const ctx = canvas.getContext('2d');
-    const draw = time => drawWhite(ctx, canvas.width, canvas.height, time / item.duration, item.id, skin);
+    const draw = time => drawWhite(ctx, canvas.width, canvas.height, time / item.duration, item, skin);
     this.#frames.set(canvas, { duration:item.duration, draw });
-    draw(item.duration * 0.27);
+    draw(item.duration * (item.choreography ? 0.55 : 0.27));
     canvas.dataset.ready = 'true';
     this.#observer.observe(canvas);
   };
@@ -154,7 +169,7 @@ export const skins = {
 const clamp = value => Math.max(0, Math.min(1, value));
 const smooth = value => { const x = clamp(value); return x * x * (3 - 2 * x); };
 
-function drawWhite(ctx, width, height, t, id, skin) {
+function drawWhite(ctx, width, height, t, item, skin) {
   const [,background,accent,ink] = skins[skin];
   const unit = Math.min(width, height);
   ctx.fillStyle = background;
@@ -191,7 +206,13 @@ function drawWhite(ctx, width, height, t, id, skin) {
     ctx.stroke();
   };
 
-  switch (id) {
+  if (item.choreography) {
+    drawWhiteTechnique(ctx, t, item.choreography, [background, accent, ink], { rect, label, circle, line });
+    ctx.restore();
+    return;
+  }
+
+  switch (item.id) {
     case 'word-topple-ground': {
       line(-118,67,118,67);
       ctx.save();
@@ -257,7 +278,7 @@ function drawWhite(ctx, width, height, t, id, skin) {
       label(['先','看','再','选'][beat],0,94,22);
       break;
     }
-    default: {
+    case 'screen-step-focus': {
       rect(-103,-66,206,132,ink);
       rect(-95,-58,190,116,background);
       for(let i=0;i<3;i++) {
