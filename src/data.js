@@ -10,7 +10,7 @@ export const effects = atlasEntries;
 export const whiteModels = whiteEntries;
 export let motionCatalog;
 export async function loadMotionCatalog() {
-  motionCatalog ??= (await import('../data/motion-prompt.json', { with: { type: 'json' } })).default;
+  motionCatalog ??= (await import('./motion-catalog.js')).default;
   return motionCatalog;
 }
 export const atlasBase = 'https://atlas.letz.ai';
@@ -69,21 +69,6 @@ export function opuscarPrompt(item) {
 const motionTitle = item => 'Motion Prompt #' + item.id + ' · ' + zh(item.name) + ' · ' + item.name.en;
 const motionDemo = item => motionBase + '#' + item.id;
 
-const verifiedMotionNotes = {
-  revision: '683ecca0548a1754ada141d10dc3a009d4c59bef',
-  entries: {
-    '025': [
-      '每 4.7 秒重复一次摇摄。设 u 为该轮内的秒数，q = clamp((u − 0.5) / 2.9, 0, 1)。精确进度为 q < 0.5 时 4q³，否则 1 − 4(1 − q)³。偏航角为 −0.32 + 0.64 × 进度，单位为弧度。',
-      '在 539 × 208 px 画布上，世界水平朝向 b 投影到 x = 269.5 + 330 × tan(b − 偏航角)。各层使用同一个偏航角。',
-      '4.2 秒后保持结束角度，并向起始角度的画面交叉淡入。设 r = clamp((u − 4.2) / 0.5, 0, 1)，起始画面的混合权重为 r < 0.5 时 2r²，否则 1 − 2(1 − r)²。权重不高于 0.001 时只画结束帧，不低于 0.999 时只画起始帧。',
-    ],
-    '121': [
-      '在 539 × 208 px 参考画布上，两个落点的 x 坐标分别为 108 和 431。旋转和缩放以方块底边中心为锚点，该点贴在 y = 178 的地面线上。',
-      '进入发射段后直接使用该段的半正弦伸展和前倾曲线。预备段的压缩和后倾在段落边界结束。',
-    ],
-  },
-};
-
 function motionSourceLinks(item) {
   const api = 'https://raw.githubusercontent.com/showheyohtaki/motion-prompt/' + motionCatalog.revision + '/api/v1/';
   return [
@@ -109,9 +94,11 @@ function motionApplication(item) {
   }
 }
 
-export function motionPrompt(item) {
+export function motionPrompt(item, implementation = '') {
   const specs = item.spec['zh-Hans'] || item.spec.en;
-  const notes = motionCatalog.revision === verifiedMotionNotes.revision && verifiedMotionNotes.entries[item.id];
+  const pack = motionCatalog.packs.find(pack => pack.pack === item.pack);
+  const assets = [...(pack.images ?? []), ...(pack.fonts ?? []).map(font => font.url)];
+  const assetRoot = 'https://raw.githubusercontent.com/showheyohtaki/motion-prompt/' + motionCatalog.revision + '/packs/' + item.pack + '/';
   return [
     '请在我的任务中应用 ' + motionTitle(item) + '。',
     motionApplication(item),
@@ -125,18 +112,19 @@ export function motionPrompt(item) {
     '',
     '原始规格',
     ...specs.map(line => '- ' + line),
-    ...(notes ? ['', '同版本实现补充', ...notes.map(line => '- ' + line)] : []),
     '',
     '官方演示｜' + motionDemo(item),
     ...motionSourceLinks(item),
-    '编码复现前先读取这两个固定版本的参考文件，用实际代码核对文字未写全的锚点、缓动公式和循环衔接。遇到近似描述，以同版本实现为准并保留 MIT 署名。仅能使用文字规格时，请标出仍需估算的参数。',
+    ...(assets.length ? ['参考素材目录｜' + assetRoot, '所需相对路径｜' + assets.join('、')] : []),
+    '编码复现时，从所附源码或固定版本的参考文件读取实际算法。用代码核对坐标系、锚点、分段时序、缓动与循环复位。按任务适配素材和画幅，保留 MIT 署名。遇到近似参数，以源码行为为准。完成后对照关键时刻的画面，并说明仍需近似的部分。',
+    ...(implementation ? ['', '同版本参考源码。可作为浏览器脚本运行，选用 MotionPrompt.packs.' + item.pack + '.cells[' + (Number(item.no) - 1) + ']。有资源就绪 Promise 时先等待 ready，再调用 draw(ctx, width, height, t)，其中 t 是周期内的秒数。', '```js', implementation.trimEnd(), '```'] : []),
   ].join('\n');
 }
 
 export function motionSkillPrompt(item) {
   return [
     '请用已安装的 motion-prompt Skill 调用 ' + motionTitle(item) + '。',
-    '按编号读取官方规格。需要编码时，用下方同版本的条目和系列共享代码核对锚点、缓动和循环衔接，保留 MIT 署名。',
+    '按编号读取官方规格。编码时根据同版本条目和共享代码核对坐标系、锚点、分段时序、缓动与循环复位，并对照关键时刻的画面。保留 MIT 署名。',
     motionApplication(item),
     '官方演示｜' + motionDemo(item),
     ...motionSourceLinks(item),

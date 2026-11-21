@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { Script } from 'node:vm';
 import {
   effects, styles, opuscarStyles, whiteModels,
   searchable, stylePrompt, opuscarPrompt, pairStyles, mixPrompt, whitePrompt, zh, isPhysics, motionTheme,
@@ -11,6 +12,7 @@ import atlasMedia from '../data/atlas-media.json' with { type: 'json' };
 import coverPreviews from '../data/cover-previews.json' with { type: 'json' };
 import motionCatalog from '../data/motion-prompt.json' with { type: 'json' };
 import { whiteTechniques } from '../src/white-animations.js';
+import { selectMotionSource } from '../src/motion-source.js';
 
 test('LetzAI includes all 504 distinct public entries and has 29 categories', () => {
   assert.equal(effects.length, 504);
@@ -63,7 +65,7 @@ test('both copy modes identify the same Motion Prompt item and the full prompt c
     assert.ok(full.includes('以原始规格为效果基准'));
     assert.ok(full.includes('参考画布｜' + item.width + ' × ' + item.height + ' px'));
     assert.ok(full.includes('目录播放器周期为 ' + item.cycle + ' 秒'));
-    assert.ok(full.includes('以同版本实现为准'));
+    assert.ok(full.includes('用代码核对坐标系、锚点、分段时序、缓动与循环复位'));
     assert.ok(full.includes(api + 'en/e/' + item.id + '.txt'));
     assert.ok(full.includes(api + 'kit/' + item.pack + '.js'));
     for (const spec of item.spec.en) assert.ok(full.includes(spec), item.id);
@@ -76,18 +78,26 @@ test('both copy modes identify the same Motion Prompt item and the full prompt c
   assert.match(motionPrompt(elements[216]), /用我的数据与标签重建图表/);
 });
 
-test('measured motion refinements preserve pan projection and anticipation pivot', async () => {
-  const { elements } = await loadMotionCatalog();
-  const pan = motionPrompt(elements.find(item => item.id === '025'));
-  assert.match(pan, /4\.7 秒重复一次摇摄/);
-  assert.match(pan, /4q³/);
-  assert.match(pan, /330 × tan\(b − 偏航角\)/);
-  assert.match(pan, /2r²/);
-  const anticipation = motionPrompt(elements.find(item => item.id === '121'));
-  assert.match(anticipation, /底边中心为锚点/);
-  assert.match(anticipation, /108 和 431/);
-  assert.match(anticipation, /发射段后直接使用该段的半正弦/);
-  assert.doesNotMatch(motionPrompt(elements.find(item => item.id === '193')), /同版本实现补充/);
+test('every Motion Prompt entry copies its own executable source with the original shared code', async () => {
+  const { elements, packs } = await loadMotionCatalog();
+  const runtime = readFileSync('public/motion-prompt/runtime.js', 'utf8');
+  for (const pack of packs) {
+    const source = readFileSync('public/motion-prompt/' + pack.pack + '.js', 'utf8');
+    const markers = code => [...code.matchAll(/^ {2}\/\/ @element (\d{2})$/gm)].map(marker => marker[1]);
+    const shared = code => [...code.matchAll(/^ {2}\/\/ @shared$/gm)].length;
+    for (const item of elements.filter(item => item.pack === pack.pack)) {
+      const selected = selectMotionSource(source, item.no);
+      const implementation = runtime + '\n' + selected;
+      assert.deepEqual(markers(selected), [item.no], item.id);
+      assert.equal(shared(selected), shared(source), item.id);
+      assert.match(selected.split('\n')[0], /MIT License/);
+      assert.doesNotThrow(() => new Script(implementation), item.id);
+      const prompt = motionPrompt(item, implementation);
+      assert.ok(prompt.includes(implementation.trimEnd()), item.id);
+      for (const asset of pack.images ?? []) assert.ok(prompt.includes(asset), item.id);
+    }
+  }
+  assert.throws(() => selectMotionSource('', '01'), /invalid/);
 });
 
 test('every Atlas entry has a distinct local WebP and verifiable cover provenance', () => {

@@ -9,6 +9,7 @@ import atlasVideos from '../data/atlas-videos.json' with { type: 'json' };
 import coverPreviews from '../data/cover-previews.json' with { type: 'json' };
 import { PreviewPlayer, skins } from './preview.js';
 import { FilterMenus } from './filter-menus.js';
+import { motionPromptWithSource } from './motion-copy.js';
 
 const repository = 'https://github.com/Peiiii/visual-reference-library';
 const motionSkillGuide = 'https://github.com/showheyohtaki/motion-prompt#skill-reference';
@@ -61,6 +62,18 @@ function httpsUrl(value, base) {
 const link = (label, url) => `<a href="${esc(httpsUrl(url))}" target="_blank" rel="noopener noreferrer">${esc(label)} <span aria-hidden="true">↗</span></a>`;
 const act = (label, action, id = '', classes = '') => `<button class="action ${classes}" data-action="${action}" data-id="${esc(id)}">${esc(label)}</button>`;
 const detailsButton = (name, id) => `<button class="card-title" data-action="detail" data-id="${esc(id)}">${esc(name)}</button>`;
+
+async function writeAsyncClipboard(prompt) {
+  if (window.ClipboardItem && navigator.clipboard?.write) {
+    const contents = prompt.then(value => new Blob([value], { type:'text/plain' }));
+    const writing = (async () => navigator.clipboard.write([new ClipboardItem({ 'text/plain':contents })]))();
+    const [written, read] = await Promise.allSettled([writing, contents]);
+    if (read.status === 'rejected') throw read.reason;
+    if (written.status === 'rejected') throw written.reason;
+  } else {
+    await navigator.clipboard.writeText(await prompt);
+  }
+}
 
 function groupSelect(key, label, options, selected) {
   const choices = options.map(value => Array.isArray(value) ? value : [value,value]);
@@ -319,7 +332,7 @@ class Library {
       <main id="main" class="wrap">
         <header class="section-head">
           <div><h1>${name}</h1><p>${subtitle}</p>
-          ${this.#view === 'motion' ? `<p>完整提示词可直接交给 AI。已安装 Motion Prompt Skill 时可按编号调用。${link('官方 Skill 用法',motionSkillGuide)}</p>` : ''}</div>
+          ${this.#view === 'motion' ? `<p>完整提示词附参考源码。已安装 Motion Prompt Skill 时可按编号调用。${link('官方 Skill 用法',motionSkillGuide)}</p>` : ''}</div>
           ${counts || loadingMotion ? `<p class="catalog-count" ${loadingMotion ? 'hidden' : ''}>${counts}</p>` : ''}
         </header>
         ${this.#view === 'mix' ? '<section id="mix"></section>' : `
@@ -591,8 +604,9 @@ class Library {
           <p><b>编号及分类</b> #${item.id} · ${esc(packName(item.pack))} · ${esc(categoryName(item))}</p>
           <h3>官方示例用法</h3><pre>${esc(zh(item.ask))}</pre>
           <div class="card-actions">${motionActions(item)} ${act(this.#player.paused?'播放样张':'暂停样张','pause')}</div>
-          <details><summary>查看复制内容</summary>
-            <h3>完整提示词</h3><pre>${esc(motionPrompt(item))}</pre>
+          <details><summary>查看提示词</summary>
+            <h3>文字规格</h3><pre>${esc(motionPrompt(item))}</pre>
+            <p>复制完整提示词时，会附上本条参考源码和系列共享代码。</p>
             <h3>Skill 调用</h3><pre>${esc(motionSkillPrompt(item))}</pre>
           </details>
           <details><summary>用途、要点与概要</summary><p>${esc(zh(item.use))}</p><p>${esc(zh(item.summary))}</p><ul>${spec.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>
@@ -674,16 +688,7 @@ class Library {
       throw error;
     });
     try {
-      if (window.ClipboardItem && navigator.clipboard?.write) {
-        const contents = prompt.then(value => new Blob([value],{type:'text/plain'}));
-        const writing = (async () => navigator.clipboard.write([new ClipboardItem({'text/plain':contents})]))();
-        const [written, read] = await Promise.allSettled([writing,contents]);
-        if (read.status === 'rejected') throw read.reason;
-        if (written.status === 'rejected') throw written.reason;
-      } else {
-        const value = await prompt;
-        await navigator.clipboard.writeText(value);
-      }
+      await writeAsyncClipboard(prompt);
       this.#notify('已复制到剪贴板');
     } catch {
       this.#notify(promptIssue || '剪贴板不可用，可从官方原页复制。');
@@ -729,6 +734,27 @@ class Library {
     }
   };
 
+  #copyMotion = async (item, button) => {
+    if (button.getAttribute('aria-busy') === 'true') return;
+    const label = button.textContent;
+    button.setAttribute('aria-busy','true');
+    button.textContent = '正在复制…';
+    let status = '已复制到剪贴板';
+    const prompt = motionPromptWithSource(item).catch(() => {
+      status = '参考源码暂未载入，已复制文字规格和源码链接。';
+      return motionPrompt(item);
+    });
+    try {
+      await writeAsyncClipboard(prompt);
+      this.#notify(status);
+    } catch {
+      this.#notify('剪贴板不可用，可在条目详情中复制文字规格。');
+    } finally {
+      button.textContent = label;
+      button.removeAttribute('aria-busy');
+    }
+  };
+
   #onClick = event => {
     const tab = event.target.closest('[data-view]');
     if (tab && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
@@ -758,7 +784,7 @@ class Library {
       case 'retry-motion': this.#renderMotionCatalog(); break;
       case 'copy-style': this.#copy(stylePrompt(item)); break;
       case 'copy-opuscar': this.#copy(opuscarPrompt(item)); break;
-      case 'copy-motion': this.#copy(motionPrompt(item)); break;
+      case 'copy-motion': this.#copyMotion(item,button); break;
       case 'copy-motion-skill': this.#copy(motionSkillPrompt(item)); break;
       case 'copy-name': this.#copy(zh(item.name)); break;
       case 'copy-atlas': this.#copyAtlas(item,button); break;
