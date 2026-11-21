@@ -69,6 +69,29 @@ export function opuscarPrompt(item) {
 const motionTitle = item => 'Motion Prompt #' + item.id + ' · ' + zh(item.name) + ' · ' + item.name.en;
 const motionDemo = item => motionBase + '#' + item.id;
 
+const verifiedMotionNotes = {
+  revision: '683ecca0548a1754ada141d10dc3a009d4c59bef',
+  entries: {
+    '025': [
+      '每 4.7 秒重复一次摇摄。设 u 为该轮内的秒数，q = clamp((u − 0.5) / 2.9, 0, 1)。精确进度为 q < 0.5 时 4q³，否则 1 − 4(1 − q)³。偏航角为 −0.32 + 0.64 × 进度，单位为弧度。',
+      '在 539 × 208 px 画布上，世界水平朝向 b 投影到 x = 269.5 + 330 × tan(b − 偏航角)。各层使用同一个偏航角。',
+      '4.2 秒后保持结束角度，并向起始角度的画面交叉淡入。设 r = clamp((u − 4.2) / 0.5, 0, 1)，起始画面的混合权重为 r < 0.5 时 2r²，否则 1 − 2(1 − r)²。权重不高于 0.001 时只画结束帧，不低于 0.999 时只画起始帧。',
+    ],
+    '121': [
+      '在 539 × 208 px 参考画布上，两个落点的 x 坐标分别为 108 和 431。旋转和缩放以方块底边中心为锚点，该点贴在 y = 178 的地面线上。',
+      '进入发射段后直接使用该段的半正弦伸展和前倾曲线。预备段的压缩和后倾在段落边界结束。',
+    ],
+  },
+};
+
+function motionSourceLinks(item) {
+  const api = 'https://raw.githubusercontent.com/showheyohtaki/motion-prompt/' + motionCatalog.revision + '/api/v1/';
+  return [
+    '条目规格和参考代码｜' + api + 'en/e/' + item.id + '.txt',
+    '系列共享代码｜' + api + 'kit/' + item.pack + '.js',
+  ];
+}
+
 function motionApplication(item) {
   switch (item.pack) {
     case 'artstyle':
@@ -87,9 +110,8 @@ function motionApplication(item) {
 }
 
 export function motionPrompt(item) {
-  const revision = motionCatalog.revision;
-  const api = 'https://raw.githubusercontent.com/showheyohtaki/motion-prompt/' + revision + '/api/v1/';
   const specs = item.spec['zh-Hans'] || item.spec.en;
+  const notes = motionCatalog.revision === verifiedMotionNotes.revision && verifiedMotionNotes.entries[item.id];
   return [
     '请在我的任务中应用 ' + motionTitle(item) + '。',
     motionApplication(item),
@@ -99,23 +121,25 @@ export function motionPrompt(item) {
     '官方示例用法｜' + zh(item.ask),
     '样张说明｜' + zh(item.summary),
     '适用场景｜' + zh(item.use),
+    '参考画布｜' + item.width + ' × ' + item.height + ' px。目录播放器周期为 ' + item.cycle + ' 秒。规格中的像素尺寸以该画布为基准，换画幅时保留关键锚点和相对路径。',
     '',
     '原始规格',
     ...specs.map(line => '- ' + line),
+    ...(notes ? ['', '同版本实现补充', ...notes.map(line => '- ' + line)] : []),
     '',
     '官方演示｜' + motionDemo(item),
-    '条目规格和参考代码｜' + api + 'en/e/' + item.id + '.txt',
-    '系列共享代码｜' + api + 'kit/' + item.pack + '.js',
-    '若要编码实现，参考条目代码及其系列共享代码，保留 Motion Prompt 的 MIT 署名。',
+    ...motionSourceLinks(item),
+    '编码复现前先读取这两个固定版本的参考文件，用实际代码核对文字未写全的锚点、缓动公式和循环衔接。遇到近似描述，以同版本实现为准并保留 MIT 署名。仅能使用文字规格时，请标出仍需估算的参数。',
   ].join('\n');
 }
 
 export function motionSkillPrompt(item) {
   return [
     '请用已安装的 motion-prompt Skill 调用 ' + motionTitle(item) + '。',
-    '按编号读取官方规格。需要编码时，同时读取条目代码和 ' + item.pack + ' 系列共享代码。',
+    '按编号读取官方规格。需要编码时，用下方同版本的条目和系列共享代码核对锚点、缓动和循环衔接，保留 MIT 署名。',
     motionApplication(item),
     '官方演示｜' + motionDemo(item),
+    ...motionSourceLinks(item),
   ].join('\n');
 }
 
