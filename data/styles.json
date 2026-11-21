@@ -1,0 +1,842 @@
+[
+  {
+    "id": "swiss",
+    "name": "瑞士排版",
+    "en": "Swiss Typography",
+    "group": "编辑排版",
+    "level": "A",
+    "preview": "swiss",
+    "colors": [
+      "#eee7d4",
+      "#bd352b",
+      "#201c19"
+    ],
+    "description": "以严整网格和超大无衬线标题构成版面，少量朱红标出关键信息。",
+    "use": "观点标题、数字对比、开篇定调",
+    "prompt": "主体用大号黑体，占画面三分之一，辅助文字沿左侧网格对齐。朱红只用于一个关键数字。用硬切完成信息交接。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "ukiyoe",
+    "name": "浮世绘",
+    "en": "Ukiyo-e",
+    "group": "东方传统",
+    "level": "B",
+    "preview": "woodblock",
+    "colors": [
+      "#efddae",
+      "#204f6b",
+      "#b6493e"
+    ],
+    "description": "刻线、平涂、套版边缘和纸面纹理共同组织空间。",
+    "use": "旅程、章节开场、同一主角的系列",
+    "prompt": "用木版刻线描出风与海，只有三至四色平涂和少量纸纹。画面从右向左展开纸卷，主角位置保持一致。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/ukiyoe"
+    }
+  },
+  {
+    "id": "clay",
+    "name": "黏土糖果",
+    "en": "Clay Candy",
+    "group": "童趣立体",
+    "level": "B",
+    "preview": "clay",
+    "colors": [
+      "#f3c3b7",
+      "#ad90c8",
+      "#467c68"
+    ],
+    "description": "圆鼓鼓的黏土块、柔和反光和糖果色让步骤像可以拿起来摆放的物件。",
+    "use": "新手教程、生活方式、轻松商单",
+    "prompt": "将按钮和卡片做成同一套哑光软陶，使用杏色、淡紫、薄荷绿，轻微凹陷与高光。入场用短弹簧后立即稳定。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "aurora",
+    "name": "极光玻璃",
+    "en": "Aurora Glass",
+    "group": "暗场科技",
+    "level": "B",
+    "preview": "glass",
+    "colors": [
+      "#202447",
+      "#cc74cb",
+      "#b6c4e9"
+    ],
+    "description": "彩色光斑漂移，玻璃层压住背景，步骤入场时虚化非关注区域。",
+    "use": "产品发布、录屏步骤、干净细腻的教程",
+    "prompt": "建立三层半透明磨砂界面，后景用低饱和彩光，标题出现时短促改变背景焦点。输入与正文需清晰可读。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "retro-collage",
+    "name": "复古拼贴",
+    "en": "Vintage Collage",
+    "group": "纸面手绘",
+    "level": "B",
+    "preview": "collage",
+    "colors": [
+      "#e7d6ac",
+      "#4a5940",
+      "#ab6934"
+    ],
+    "description": "旧纸裁切和自然形状重组空间，让同一画面承接多条证据。",
+    "use": "案例拆解、叙事回顾、自然意象",
+    "prompt": "用撕纸轮廓、不规则图块、几张独立小标签排版，纸张质感轻微。按读序逐个拼贴出现，保留间距。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "paper-cut",
+    "name": "红色窗花剪纸",
+    "en": "Red Paper-cut",
+    "group": "东方传统",
+    "level": "C",
+    "preview": "papercut",
+    "colors": [
+      "#eddfc7",
+      "#a8292d",
+      "#512921"
+    ],
+    "description": "正负形对称、朱红镂空，纸边有细小厚度。",
+    "use": "传统题材、纪念日、结尾大字",
+    "prompt": "用单色朱红构建四向对称剪纸，主体以镂空出现，背景暖白纸。先展开结构，再显露内容。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/papercut-red"
+    }
+  },
+  {
+    "id": "one-line",
+    "name": "一笔画",
+    "en": "One-line Drawing",
+    "group": "纸面手绘",
+    "level": "A",
+    "preview": "oneline",
+    "colors": [
+      "#eee9d6",
+      "#41463a",
+      "#b16f47"
+    ],
+    "description": "一根线保持相连，轮廓变形和路径延伸承担叙事。",
+    "use": "递进关系、过程演变、因果讲解",
+    "prompt": "用连续细线在纸面绘出一条路径，笔尖走过以后保留形状。通过一笔变形连接相邻场景。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/one-line"
+    }
+  },
+  {
+    "id": "halftone",
+    "name": "网点案卷",
+    "en": "Halftone Dossier",
+    "group": "印刷版画",
+    "level": "B",
+    "preview": "folder",
+    "colors": [
+      "#e7d7a4",
+      "#b1493b",
+      "#353936"
+    ],
+    "description": "案卷夹、半调印刷和证据编号把抽象论点做成具体材料。",
+    "use": "调查、对照证据、结论揭晓",
+    "prompt": "设计纸质档案卡，照片使用网点印刷，主证据用红色标记。文件夹次第摊开，结论最后盖印。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/halftone-dossier"
+    }
+  },
+  {
+    "id": "riso",
+    "name": "Riso 小报",
+    "en": "Risograph Zine",
+    "group": "印刷版画",
+    "level": "A",
+    "preview": "riso",
+    "colors": [
+      "#f6e5c9",
+      "#ca377b",
+      "#184b91"
+    ],
+    "description": "粉蓝等少量油墨有可控的错版和颗粒，版面像小报一样紧凑。",
+    "use": "设计教程、轻松的知识段落",
+    "prompt": "用两色孔版印刷体系，淡米色纸底，残留少量套印偏移。文字和图块分两次印出来。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/risograph"
+    }
+  },
+  {
+    "id": "shadow-puppet",
+    "name": "皮影戏",
+    "en": "Shadow Puppetry",
+    "group": "东方传统",
+    "level": "C",
+    "preview": "shadow",
+    "colors": [
+      "#e4a763",
+      "#552c2e",
+      "#1b2421"
+    ],
+    "description": "侧面纸偶和透光幕布构成剪影剧场，轮廓上带细小关节。",
+    "use": "传统寓言、角色讲述",
+    "prompt": "用可辨认剪影和橙黄背光组成舞台，角色从幕后入场，以关节和层叠纸影表达动作。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/shadow-puppet"
+    }
+  },
+  {
+    "id": "paper-lantern",
+    "name": "纸雕灯影",
+    "en": "Paper-cut Lightbox",
+    "group": "东方传统",
+    "level": "C",
+    "preview": "lantern",
+    "colors": [
+      "#1f2635",
+      "#ed9656",
+      "#d6bf8b"
+    ],
+    "description": "多层镂空轮廓受柔光照亮，用遮挡和内部阴影制造景深。",
+    "use": "夜景、章节转折、温暖叙事",
+    "prompt": "用不同距离的纸雕层形成布景，从背后逐层点亮琥珀灯。保持轮廓清晰，层位移动有视差。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/paper-lantern"
+    }
+  },
+  {
+    "id": "crayon",
+    "name": "蜡笔绘本",
+    "en": "Crayon Picture Book",
+    "group": "纸面手绘",
+    "level": "B",
+    "preview": "crayon",
+    "colors": [
+      "#f7e6bc",
+      "#c2754f",
+      "#657c91"
+    ],
+    "description": "粗纹纸上用有颗粒的笔触逐步完成画面，颜色参与叙事。",
+    "use": "童趣知识、功能揭晓、片尾",
+    "prompt": "让蜡笔轮廓以轻微抖动的线条画成，涂色保留边缘飞白。最后用轻薄水彩揭开第二层信息。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/crayon-book"
+    }
+  },
+  {
+    "id": "watercolor",
+    "name": "水彩博物笔记",
+    "en": "Watercolor Notebook",
+    "group": "纸面手绘",
+    "level": "B",
+    "preview": "wash",
+    "colors": [
+      "#ebe2cc",
+      "#487b69",
+      "#bd7256"
+    ],
+    "description": "半透明色斑渗入棉纸，配手写引线与标本标记。",
+    "use": "组成说明、变化过程、安静科普",
+    "prompt": "在暖纸上用透明叠色画一组标本，不加硬描边。逐条出现手写标记和实际数值。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/watercolor"
+    }
+  },
+  {
+    "id": "ink-wash",
+    "name": "水墨写意",
+    "en": "Chinese Ink Wash",
+    "group": "东方传统",
+    "level": "B",
+    "preview": "ink",
+    "colors": [
+      "#eeead7",
+      "#303d3e",
+      "#9d3c34"
+    ],
+    "description": "干湿浓淡与大块留白拉开远近，朱印只出现一次。",
+    "use": "抽象比喻、决定性转折、片尾",
+    "prompt": "按近浓远淡的层次画山水，保留大面积宣纸留白。让扩散墨滴衔接下一场。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/ink-wash"
+    }
+  },
+  {
+    "id": "impasto",
+    "name": "油画厚涂",
+    "en": "Impasto Oil Painting",
+    "group": "纸面手绘",
+    "level": "B",
+    "preview": "impasto",
+    "colors": [
+      "#deab65",
+      "#a33f36",
+      "#33566d"
+    ],
+    "description": "饱和颜料以凸起的刮刀笔触和层叠色块塑形。",
+    "use": "艺术回顾、有强触感的开场",
+    "prompt": "以厚涂笔触堆起主体，强调笔痕投影和不均匀混色，用色块覆盖衔接画面。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/impasto"
+    }
+  },
+  {
+    "id": "whiteboard",
+    "name": "白板讲解",
+    "en": "Whiteboard Explainer",
+    "group": "纸面手绘",
+    "level": "A",
+    "preview": "oneline",
+    "colors": [
+      "#fbf6ea",
+      "#263642",
+      "#376d98"
+    ],
+    "description": "在白底用线条、符号和箭头逐层解释关系。",
+    "use": "教程、概念定义、关系梳理",
+    "prompt": "先画问题，再依讲述顺序画箭头和关系节点。全程保持笔迹清晰，只使用一处强调色。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/whiteboard"
+    }
+  },
+  {
+    "id": "urban-sketch",
+    "name": "钢笔淡彩",
+    "en": "Urban Sketch · Pen & Wash",
+    "group": "纸面手绘",
+    "level": "B",
+    "preview": "wash",
+    "colors": [
+      "#ebd8b6",
+      "#50615d",
+      "#96604a"
+    ],
+    "description": "钢笔轻描轮廓，透明水彩保留边缘偏移与纸纹。",
+    "use": "城市故事、出行、过程记录",
+    "prompt": "先以断续钢笔线勾勒街景，再用三组淡彩补光与阴影。保留边缘空白和手写地点。",
+    "source": {
+      "label": "Lemo-Opuscar · Lemomo",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/urban-sketch"
+    }
+  },
+  {
+    "id": "blueprint",
+    "name": "图纸信息圈",
+    "en": "Blueprint Diagram",
+    "group": "编辑排版",
+    "level": "A",
+    "preview": "blueprint",
+    "colors": [
+      "#1d3b9a",
+      "#ecd05a",
+      "#e6eff0"
+    ],
+    "description": "深蓝图纸和白色细线托住录屏，暖黄标出步骤。",
+    "use": "商单步骤教程、产品功能开场",
+    "prompt": "用深蓝工程纸和白线图框呈现步骤，标题随暖黄条擦入。每张步骤卡只突出一个动作。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "film",
+    "name": "复古影像",
+    "en": "Analog Film",
+    "group": "复古影像",
+    "level": "C",
+    "preview": "film",
+    "colors": [
+      "#211a19",
+      "#b8864e",
+      "#ecd4a6"
+    ],
+    "description": "片门、颗粒和温暖漏光让录屏也像来自一段胶片。",
+    "use": "手作、咖啡、香氛等有电影感的案例",
+    "prompt": "使用暖黑幕底和胶片边缘，弱化漂移和噪点，米色相纸卡托住步骤，重点以红笔圈出。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "manga",
+    "name": "黑白漫画",
+    "en": "Monochrome Manga",
+    "group": "印刷版画",
+    "level": "B",
+    "preview": "manga",
+    "colors": [
+      "#f1ebdd",
+      "#161919",
+      "#686a62"
+    ],
+    "description": "粗黑分格、对话泡和网点搭配速度线，适合短促节拍。",
+    "use": "反差、爆点、关键结论",
+    "prompt": "将镜头硬切成两至三格黑白漫画，切换时用集中线和短促震动，文字用粗黑斜体。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "flash",
+    "name": "黄色块快切海报",
+    "en": "Yellow Block Cut",
+    "group": "编辑排版",
+    "level": "A",
+    "preview": "swiss",
+    "colors": [
+      "#edcc38",
+      "#211e16",
+      "#b84135"
+    ],
+    "description": "亮黄大色块和超重黑体承接快切，有手绘圈记。",
+    "use": "开场钩子、盘点、关键词",
+    "prompt": "建立高对比黄黑版式。依节拍扫过黄色宽条，关键词在圆圈中短暂停留，结论硬切全幅。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "salon",
+    "name": "沙龙画廊",
+    "en": "Salon Gallery",
+    "group": "编辑排版",
+    "level": "B",
+    "preview": "gallery",
+    "colors": [
+      "#eeeadf",
+      "#8c5145",
+      "#4b5d51"
+    ],
+    "description": "在同一展墙上密排尺寸不同的画框，方便并列比较。",
+    "use": "工具集合、并排展示、视觉选型",
+    "prompt": "建立同一摄影视角的冷白展墙，画框错落成稳定视觉重心。扫过组合后让选中框对齐放大。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "assembly",
+    "name": "拼装说明书",
+    "en": "Assembly Manual",
+    "group": "纸面手绘",
+    "level": "B",
+    "preview": "blueprint",
+    "colors": [
+      "#e7e8df",
+      "#244e8b",
+      "#414443"
+    ],
+    "description": "用零件线稿和等轴结构解释如何由部件搭起整体。",
+    "use": "配置教程、流程组装",
+    "prompt": "用蓝色等轴线稿与编号表现拆分，零件按装配顺序入场，最后用一个整体视图收束。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "comiccandy",
+    "name": "漫画糖果",
+    "en": "Candy Comic",
+    "group": "童趣立体",
+    "level": "B",
+    "preview": "manga",
+    "colors": [
+      "#edc9da",
+      "#564e9e",
+      "#ecae3b"
+    ],
+    "description": "糖果配色的漫画分格配简单角色与冲击字。",
+    "use": "新手说明、故事节拍",
+    "prompt": "用蓝紫线条和粉金大色块，把轻松的对话拆成连续镜头，气泡依读序弹入。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "signpost",
+    "name": "路口指路牌",
+    "en": "Signpost",
+    "group": "童趣立体",
+    "level": "C",
+    "preview": "signpost",
+    "colors": [
+      "#ead5a7",
+      "#507568",
+      "#a4573e"
+    ],
+    "description": "一组方向牌把选项变成能指认的分岔路。",
+    "use": "方向选择、决策、寓言 B-roll",
+    "prompt": "把多个候选放上不同方向的三维小路牌，以空间分叉讲述选择，最后插下一个确认路牌。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "cut-paper",
+    "name": "剪纸工作台",
+    "en": "Cut-paper Workshop",
+    "group": "印刷版画",
+    "level": "A",
+    "preview": "gallery",
+    "colors": [
+      "#aac7c4",
+      "#bc7156",
+      "#e8d5aa"
+    ],
+    "description": "俯视纸片工作台，卡片高度和投影作为层级线索。",
+    "use": "工具盘点、步骤拆解",
+    "prompt": "使用青色底板、赤陶纸片和俯视角，把分工卡片逐个推入，最后按功能归组。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "vhs",
+    "name": "VHS 录像带",
+    "en": "VHS Tape",
+    "group": "复古影像",
+    "level": "B",
+    "preview": "vhs",
+    "colors": [
+      "#2c324a",
+      "#c58a4e",
+      "#6c99b8"
+    ],
+    "description": "跟踪噪点、色差和录像机菜单绑定在磁带语境。",
+    "use": "怀旧、转折、换片比喻",
+    "prompt": "用暗底磁带扫描线和少量通道偏移，快进时拉过跟踪线，结论定格为蓝底白字录像机菜单。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "neumorph",
+    "name": "暗色参数台",
+    "en": "Dark Control Console",
+    "group": "暗场科技",
+    "level": "C",
+    "preview": "console",
+    "colors": [
+      "#1f272b",
+      "#91b758",
+      "#adc1be"
+    ],
+    "description": "凸凹面板和旋钮将抽象形容词具象为可调参数。",
+    "use": "参数讲解、选型对比",
+    "prompt": "建立深灰调音台，旋钮、刻度、滑杆使用轻微内外阴影。用荧光绿指明当前调节项。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "split-flap",
+    "name": "机场翻牌屏",
+    "en": "Split-flap Display",
+    "group": "复古影像",
+    "level": "B",
+    "preview": "flap",
+    "colors": [
+      "#33302b",
+      "#c0ad7c",
+      "#829d77"
+    ],
+    "description": "机械翻牌按行更新，让候选、延迟和结果具备明确状态。",
+    "use": "路线规划、选型、方法盘点",
+    "prompt": "用暖色出发屏陈列目标和状态，每行交错翻牌，终态停下后高亮已确认那一条。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "dark-ember",
+    "name": "暗场橙光",
+    "en": "Dark Ember",
+    "group": "暗场科技",
+    "level": "B",
+    "preview": "ember",
+    "colors": [
+      "#191d25",
+      "#dd7b3b",
+      "#c9a07c"
+    ],
+    "description": "近黑背景与橘色轮廓光连起节点，冲击波用作转折。",
+    "use": "发布开场、新事物登场",
+    "prompt": "在暗背景建立视线运动路径，橙光依次点亮节点，高潮以一次脉冲扫过，结论停稳。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "design-tool",
+    "name": "设计工具界面",
+    "en": "Design Workspace",
+    "group": "界面录屏",
+    "level": "C",
+    "preview": "workspace",
+    "colors": [
+      "#e2e7dd",
+      "#394b69",
+      "#8163a0"
+    ],
+    "description": "侧栏、画布和属性栏形成易读的轻界面结构。",
+    "use": "设计协作、规范演示",
+    "prompt": "用三栏通用布局演示修改过程，画布注释与右侧参数用同色响应。突出一次编辑动作。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "ai-chat",
+    "name": "AI 对话界面",
+    "en": "AI Chat Comparison",
+    "group": "界面录屏",
+    "level": "C",
+    "preview": "chat",
+    "colors": [
+      "#282e38",
+      "#7ba78e",
+      "#c17067"
+    ],
+    "description": "同样提问与两种回答放在并列窗口，响应差异即剧情。",
+    "use": "提示词写法、输出对比",
+    "prompt": "并排两组独立对话，用短标签标记输入和结果。保留同一问题，分别显示回答与判断依据。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "editor",
+    "name": "剪辑台",
+    "en": "Timeline Editor",
+    "group": "界面录屏",
+    "level": "C",
+    "preview": "console",
+    "colors": [
+      "#252a37",
+      "#b193e1",
+      "#55a0a0"
+    ],
+    "description": "时间线、工具位和预览区将镜头拆成节拍单位。",
+    "use": "剪辑流程、结构拆解",
+    "prompt": "建立三轨时间线，播放头由左至右经过关键点，预览区域同步显示对应内容。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "arcade",
+    "name": "街机关卡",
+    "en": "Pixel Arcade",
+    "group": "像素游戏",
+    "level": "C",
+    "preview": "arcade",
+    "colors": [
+      "#252748",
+      "#efb34f",
+      "#71b8ac"
+    ],
+    "description": "有限调色、像素角色和 HUD 用升级机制讲解过程。",
+    "use": "进度、指标、阶段达成",
+    "prompt": "采用固定像素网格，角色在关卡间移动，每完成一个阶段更新计分。用清楚的大分数突出变化。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "dark-hud",
+    "name": "暗底口播 HUD",
+    "en": "Dark Presenter HUD",
+    "group": "暗场科技",
+    "level": "A",
+    "preview": "console",
+    "colors": [
+      "#182421",
+      "#91be9b",
+      "#ceac68"
+    ],
+    "description": "通透暗底、细线和有语义的颜色组织口播旁的信息卡。",
+    "use": "数据口播、关键数字、进度提示",
+    "prompt": "保留口播主体，与暗底 HUD 分区，把重要数字同一位置对齐，少量等宽数字动画。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "marker",
+    "name": "纸面马克笔",
+    "en": "Marker on Paper",
+    "group": "纸面手绘",
+    "level": "A",
+    "preview": "marker",
+    "colors": [
+      "#ebe1c6",
+      "#34322b",
+      "#a34b3e"
+    ],
+    "description": "马克笔大字、钢笔引线和一处墨色对比建立节奏。",
+    "use": "观点金句、列举、数量举例",
+    "prompt": "先写一个主观点，再用引线挂例子。重点用新的笔色，段落结束做短暂明暗切换。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "iso",
+    "name": "等距信息图",
+    "en": "Isometric Infographic",
+    "group": "编辑排版",
+    "level": "B",
+    "preview": "blueprint",
+    "colors": [
+      "#e0e7de",
+      "#56847c",
+      "#e9895c"
+    ],
+    "description": "等轴模型和路径把信息序列组织为可行走的小场景。",
+    "use": "步骤、分支、路由",
+    "prompt": "以等轴小场景显示节点，用同一角色逐站前进，箭头与步骤号保持一条读序。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "red-rosette",
+    "name": "红团花",
+    "en": "Swiss × Red Paper-cut",
+    "group": "组合样张",
+    "level": "B",
+    "preview": "papercut",
+    "colors": [
+      "#ecddc0",
+      "#a42d32",
+      "#3b2823"
+    ],
+    "description": "瑞士排版的结构承接红色窗花的大形，剪纸承担视觉焦点。",
+    "use": "观点结论、主题亮相",
+    "prompt": "使用严整网格和精简的文字，剪纸正负形作为唯一主题图。通过折展与标题硬切完成转场。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "wash-tag",
+    "name": "晾签",
+    "en": "One-line × Vintage Collage",
+    "group": "组合样张",
+    "level": "B",
+    "preview": "collage",
+    "colors": [
+      "#e8dabc",
+      "#466963",
+      "#b66242"
+    ],
+    "description": "连续线组织读序，纸片挂签承载案例和证据。",
+    "use": "示例串讲、按次序推进",
+    "prompt": "用连续细线串联少量旧纸标签，标签从线后展开。保持主标题和文字背景对比。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "point-tags",
+    "name": "观点挂签",
+    "en": "Marker × Wash Tags",
+    "group": "组合样张",
+    "level": "B",
+    "preview": "marker",
+    "colors": [
+      "#eee3c5",
+      "#85432f",
+      "#4f6b5a"
+    ],
+    "description": "观点立在版面一侧，另一侧的标签依次挂上例子。",
+    "use": "观点金句、列举、用例对照",
+    "prompt": "一侧保留大标题区，一侧用线挂标签按因果顺序排开。最后一张关键标签用暖红墨。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "iso-guide",
+    "name": "等距导览",
+    "en": "Isometric Guide",
+    "group": "组合样张",
+    "level": "B",
+    "preview": "signpost",
+    "colors": [
+      "#e5e1c7",
+      "#527f83",
+      "#ac644e"
+    ],
+    "description": "等轴路线承接逐站说明，角色只负责引导视线。",
+    "use": "功能步骤、先后顺序",
+    "prompt": "将配角设计成简单原创图形，沿淡彩等轴街道走到标记处，信息逐站出现。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  },
+  {
+    "id": "neon",
+    "name": "霓虹城市",
+    "en": "Neon City",
+    "group": "暗场科技",
+    "level": "B",
+    "preview": "neon",
+    "colors": [
+      "#151b35",
+      "#ec5095",
+      "#55b8e4"
+    ],
+    "description": "城市剪影和横向光轨制造夜景速度感。",
+    "use": "标题预告、城市叙事、节奏强的开场",
+    "prompt": "用电蓝和玫红强调城市边缘，横向光轨贯穿画面一侧，低频节奏下快速切入标题。",
+    "source": {
+      "label": "一页枝鸥 · 原片方法参考",
+      "url": "https://www.douyin.com/video/7708581319843794191"
+    }
+  }
+]

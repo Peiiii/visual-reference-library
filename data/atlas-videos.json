@@ -1,0 +1,26 @@
+{
+  "datamoshing": {
+    "artist": "Lee Brenton",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:My_first_datamosh.webm",
+    "video": "https://upload.wikimedia.org/wikipedia/commons/5/54/My_first_datamosh.webm",
+    "file": "/atlas-video/datamoshing.mp4"
+  },
+  "stop-motion-animation": {
+    "artist": "Teja Silaparasetty",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Stop-Motion_Animation_(Basic).webm",
+    "video": "https://upload.wikimedia.org/wikipedia/commons/4/47/Stop-Motion_Animation_%28Basic%29.webm",
+    "file": "/atlas-video/stop-motion-animation.mp4"
+  },
+  "chronophotography": {
+    "artist": "Eadweard Muybridge",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Muybridge_race_horse.webm",
+    "video": "https://upload.wikimedia.org/wikipedia/commons/1/18/Muybridge_race_horse.webm",
+    "file": "/atlas-video/chronophotography.mp4"
+  }
+}
