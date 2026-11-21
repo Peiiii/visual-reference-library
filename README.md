@@ -4,6 +4,8 @@ Peiiii 的个人视频包装参考库。按风格、视觉特效、动效手法�
 
 动效手法收齐 Motion Prompt 240 项和 10 个系列。风格库可切换到 Lemo-Opuscar 的 99 项公开参考。白模动作包括对照原片的 7 个案例与本站原创 48 个案例，均可播放、换画幅、换皮肤和复制配置。
 
+动效卡片的「复制完整提示词」内附原始规格、演示、条目代码和系列共享代码链接，可直接交给 AI。「复制 Skill 调用」给已安装 [Motion Prompt Skill](https://github.com/showheyohtaki/motion-prompt#skill-reference) 的环境按编号调用。
+
 - [线上站点](https://visual-library.peiiii.com/)
 
 ## 本地打开

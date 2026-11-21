@@ -66,8 +66,56 @@ export function opuscarPrompt(item) {
   ].join('\n');
 }
 
+const motionTitle = item => 'Motion Prompt #' + item.id + ' · ' + zh(item.name) + ' · ' + item.name.en;
+const motionDemo = item => motionBase + '#' + item.id;
+
+function motionApplication(item) {
+  switch (item.pack) {
+    case 'artstyle':
+      return '把画风名称、媒材、笔触和用色融入我的主体与构图。静态图像只采用画风本身。';
+    case 'photo':
+      return '把光线、镜头或后期特征用在我的主体和场景。以最终画面效果为参考，只有明确需要时才制作演示中的前后对照。';
+    case 'diagram':
+      return '用我的数据与标签重建图表，保留原参考的布局、数据关系和阅读重点。如果需要动画，再采用演示中的出现顺序。';
+    case 'ui':
+    case 'lp':
+    case 'lp2':
+      return '在项目现有组件和技术栈中实现，用真实点击、悬停或滚动替代演示操作，保留相关动效时序与缓动，并尊重减少动态效果偏好。';
+    default:
+      return '保留动作路径、先后顺序和缓动，把演示主体、构图和颜色换成我的项目内容。按目标镜头时长适配各段节奏。若目标是视频生成模型，把运动规格写成连贯的镜头描述。';
+  }
+}
+
 export function motionPrompt(item) {
-  return ['Motion Prompt #' + item.id + ' · ' + zh(item.name) + ' · ' + item.name.en, zh(item.ask)].join('\n');
+  const revision = motionCatalog.revision;
+  const api = 'https://raw.githubusercontent.com/showheyohtaki/motion-prompt/' + revision + '/api/v1/';
+  const specs = item.spec['zh-Hans'] || item.spec.en;
+  return [
+    '请在我的任务中应用 ' + motionTitle(item) + '。',
+    motionApplication(item),
+    '',
+    '效果｜' + zh(item.meaning),
+    '官方示例用法｜' + zh(item.ask),
+    '样张说明｜' + zh(item.summary),
+    '适用场景｜' + zh(item.use),
+    '',
+    '原始规格',
+    ...specs.map(line => '- ' + line),
+    '',
+    '官方演示｜' + motionDemo(item),
+    '条目规格和参考代码｜' + api + 'en/e/' + item.id + '.txt',
+    '系列共享代码｜' + api + 'kit/' + item.pack + '.js',
+    '若要编码实现，参考条目代码及其系列共享代码，保留 Motion Prompt 的 MIT 署名。',
+  ].join('\n');
+}
+
+export function motionSkillPrompt(item) {
+  return [
+    '请用已安装的 motion-prompt Skill 调用 ' + motionTitle(item) + '。',
+    '按编号读取官方规格。需要编码时，同时读取条目代码和 ' + item.pack + ' 系列共享代码。',
+    motionApplication(item),
+    '官方演示｜' + motionDemo(item),
+  ].join('\n');
 }
 
 export function whitePrompt(item, format, skin) {

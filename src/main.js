@@ -2,7 +2,7 @@ import './site.css';
 import {
   styles, opuscarStyles, opuscarBase, effects, motionCatalog, loadMotionCatalog, whiteModels, atlasBase, motionBase, douyinSource,
   atlasGroup, zh, packName, categoryName, motionTheme, isPhysics,
-  searchable, stylePrompt, opuscarPrompt, motionPrompt, whitePrompt, pairStyles, mixPrompt,
+  searchable, stylePrompt, opuscarPrompt, motionPrompt, motionSkillPrompt, whitePrompt, pairStyles, mixPrompt,
 } from './data.js';
 import atlasMedia from '../data/atlas-media.json' with { type: 'json' };
 import atlasVideos from '../data/atlas-videos.json' with { type: 'json' };
@@ -11,6 +11,7 @@ import { PreviewPlayer, skins } from './preview.js';
 import { FilterMenus } from './filter-menus.js';
 
 const repository = 'https://github.com/Peiiii/visual-reference-library';
+const motionSkillGuide = 'https://github.com/showheyohtaki/motion-prompt#skill-reference';
 
 const pages = {
   styles: ['风格库', '浏览视觉包装样张，按题材选风格，把配置直接交给 AI。', [...styles, ...opuscarStyles]],
@@ -170,7 +171,13 @@ function motionCard(item) {
     <div class="card-body"><div class="meta">${motionTheme(item)} <span>#${item.id} · ${esc(categoryName(item))}</span></div>
     <h3>${detailsButton(zh(item.name),item.id)}</h3><p class="en">${esc(item.name.en)}</p>
     <p class="description">${esc(zh(item.meaning))}</p>
-    <div class="card-actions">${act('复制示例提示词','copy-motion',item.id,'primary')} ${act('复制中文名','copy-name',item.id,'subtle')}</div></div></article>`;
+    <div class="card-actions">${motionActions(item)}</div></div></article>`;
+}
+
+function motionActions(item) {
+  return `${act('复制完整提示词','copy-motion',item.id,'primary')}
+    ${act('复制 Skill 调用','copy-motion-skill',item.id)}
+    ${act('复制中文名','copy-name',item.id,'subtle')}`;
 }
 
 function whiteCard(item) {
@@ -311,7 +318,8 @@ class Library {
       </nav></div>
       <main id="main" class="wrap">
         <header class="section-head">
-          <div><h1>${name}</h1><p>${subtitle}</p></div>
+          <div><h1>${name}</h1><p>${subtitle}</p>
+          ${this.#view === 'motion' ? `<p>完整提示词可直接交给 AI。已安装 Motion Prompt Skill 时可按编号调用。${link('官方 Skill 用法',motionSkillGuide)}</p>` : ''}</div>
           ${counts || loadingMotion ? `<p class="catalog-count" ${loadingMotion ? 'hidden' : ''}>${counts}</p>` : ''}
         </header>
         ${this.#view === 'mix' ? '<section id="mix"></section>' : `
@@ -581,8 +589,12 @@ class Library {
         const spec = item.spec?.['zh-Hans'] || item.spec?.en || [];
         body = `${motionCanvas(item)}<p>${esc(zh(item.meaning))}</p>
           <p><b>编号及分类</b> #${item.id} · ${esc(packName(item.pack))} · ${esc(categoryName(item))}</p>
-          <h3>示例提示词</h3><pre>${esc(zh(item.ask))}</pre>
-          <div class="card-actions">${act('复制示例提示词','copy-motion',item.id,'primary')} ${act('复制中文名','copy-name',item.id,'subtle')} ${act(this.#player.paused?'播放样张':'暂停样张','pause')}</div>
+          <h3>官方示例用法</h3><pre>${esc(zh(item.ask))}</pre>
+          <div class="card-actions">${motionActions(item)} ${act(this.#player.paused?'播放样张':'暂停样张','pause')}</div>
+          <details><summary>查看复制内容</summary>
+            <h3>完整提示词</h3><pre>${esc(motionPrompt(item))}</pre>
+            <h3>Skill 调用</h3><pre>${esc(motionSkillPrompt(item))}</pre>
+          </details>
           <details><summary>用途、要点与概要</summary><p>${esc(zh(item.use))}</p><p>${esc(zh(item.summary))}</p><ul>${spec.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>
           <p class="credit">${link('Motion Prompt · Shohei Ohtaki',motionBase+'#'+item.id)} · <a href="/motion-prompt/LICENSE">MIT</a></p>`;
         break;
@@ -747,6 +759,7 @@ class Library {
       case 'copy-style': this.#copy(stylePrompt(item)); break;
       case 'copy-opuscar': this.#copy(opuscarPrompt(item)); break;
       case 'copy-motion': this.#copy(motionPrompt(item)); break;
+      case 'copy-motion-skill': this.#copy(motionSkillPrompt(item)); break;
       case 'copy-name': this.#copy(zh(item.name)); break;
       case 'copy-atlas': this.#copyAtlas(item,button); break;
       case 'copy-white': this.#copy(this.#dialog.open ? this.#whiteConfig(item) : whitePrompt(item,formats.wide[0],skins.gray[0])); break;

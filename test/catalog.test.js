@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import {
   effects, styles, opuscarStyles, whiteModels,
   searchable, stylePrompt, opuscarPrompt, pairStyles, mixPrompt, whitePrompt, zh, isPhysics, motionTheme,
+  loadMotionCatalog, motionPrompt, motionSkillPrompt,
 } from '../src/data.js';
 import atlasMedia from '../data/atlas-media.json' with { type: 'json' };
 import coverPreviews from '../data/cover-previews.json' with { type: 'json' };
@@ -44,6 +45,29 @@ test('Motion Prompt includes every entry and preview asset in the pinned release
   }
   assert.equal(motionTheme(elements[192]), '图像画风');
   assert.equal(motionTheme(elements[216]), '图解图表');
+});
+
+test('both copy modes identify the same Motion Prompt item and the full prompt carries its source specs', async () => {
+  const { elements, revision } = await loadMotionCatalog();
+  const api = 'https://raw.githubusercontent.com/showheyohtaki/motion-prompt/' + revision + '/api/v1/';
+  for (const item of elements) {
+    const full = motionPrompt(item);
+    const skill = motionSkillPrompt(item);
+    for (const copy of [full, skill]) {
+      assert.ok(copy.includes('Motion Prompt #' + item.id));
+      assert.ok(copy.includes(item.name['zh-Hans']));
+      assert.ok(copy.includes(item.name.en));
+      assert.ok(copy.includes('https://showheyohtaki.github.io/motion-prompt/#' + item.id));
+    }
+    assert.ok(full.includes(item.ask['zh-Hans']));
+    assert.ok(full.includes(api + 'en/e/' + item.id + '.txt'));
+    assert.ok(full.includes(api + 'kit/' + item.pack + '.js'));
+    for (const spec of item.spec.en) assert.ok(full.includes(spec), item.id);
+    assert.ok(skill.includes('已安装的 motion-prompt Skill'));
+    assert.ok(skill.length < full.length);
+  }
+  assert.match(motionPrompt(elements[192]), /静态图像只采用画风本身/);
+  assert.match(motionPrompt(elements[216]), /用我的数据与标签重建图表/);
 });
 
 test('every Atlas entry has a distinct local WebP and verifiable cover provenance', () => {
